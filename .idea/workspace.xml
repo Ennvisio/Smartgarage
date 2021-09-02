@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51b75579-cbe1-4385-9b38-e58e93176a99" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/auth/signUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/auth/signUp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/addCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/addCustomer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/addSupplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/addSupplier.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/editCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/editCustomer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/editSupplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/editSupplier.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/core/AppBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/core/AppBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/core/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/expense/addExpense.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/invoiceTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/invoiceTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/payment/addPayment.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/payment/viewPayment.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addBrand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addBrand.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addCategory.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addProduct.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editBrand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editBrand.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editCategory.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editSingleProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editSingleProduct.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/searchInvoiceProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/searchInvoiceProduct.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/product/searchProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/searchProduct.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/purchase/purchaseTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/purchase/purchaseTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/sell/sellTable.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/service/addService.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/service/addService.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/service/editService.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/service/editService.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/stock/transferTable.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addColor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addColor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addType.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addVehicle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addVehicle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/editColor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/editColor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/editType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/editType.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/lang/bn.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/lang/bn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/lang/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/layouts/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/nuxt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/advance/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/business-setting-and-location/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/commission/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/customer-groups.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/customers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/contact/customers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/supplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/contact/supplier.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/dashboard/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/add.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/category.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/list.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/edit/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/edit/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/pos/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/brand.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/category.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/unit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/unit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/edit/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/edit/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/return.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/sell/create.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/sell/list.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/service/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/service/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/stockTransfer/add.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/stockTransfer/list.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/vehiclecolor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/vehiclecolor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/vehicletype.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/vehicletype.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/store/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/store/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdvanceController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessLocationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommissionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerGroupController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseCategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OpeningStockQtyController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentMethodController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchasePaymentController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalePurchaseReturnController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdvanceResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CustomerGroupResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ExpenseCategoryResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ExpenseResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OpeningStockQtyResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrderResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentMethodResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentModeResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductVariationResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseItemsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseItemsResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SalePurchaseReturnResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SaleResource.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UnitResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UnitResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/VehicleResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/VehicleResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Invoice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PurchaseItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PurchaseItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2017_07_27_104124_create_expense_categories_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_14_050409_create_expenses_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_064125_create_opening_stock_qties_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_091107_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_091107_create_purchases_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_105726_create_purchase_payments_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_065635_create_sales_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_070645_create_sale_items_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/vehicle_management (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/vehicle_management (1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1t3zM36Kp1Zfnf0IptOprq5VmXY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Front-End/assets/image" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="vuejs.nuxt.types-notification-shown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\vehicle_inventory\Front-End\assets\image" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51b75579-cbe1-4385-9b38-e58e93176a99" name="Default Changelist" comment="" />
+      <created>1622012516155</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622012516155</updated>
+      <workItem from="1622012519899" duration="1087000" />
+      <workItem from="1622089893498" duration="259000" />
+      <workItem from="1622096405808" duration="4981000" />
+      <workItem from="1622135908572" duration="2400000" />
+      <workItem from="1622350836718" duration="3180000" />
+      <workItem from="1622439565971" duration="4667000" />
+      <workItem from="1622537231909" duration="2273000" />
+      <workItem from="1622550692988" duration="1252000" />
+      <workItem from="1623564424641" duration="229000" />
+      <workItem from="1623564683381" duration="7603000" />
+      <workItem from="1623575116605" duration="3694000" />
+      <workItem from="1623580329914" duration="1420000" />
+      <workItem from="1623644716153" duration="27000" />
+      <workItem from="1623732623964" duration="1792000" />
+      <workItem from="1630216674368" duration="131000" />
+      <workItem from="1630216905227" duration="84000" />
+      <workItem from="1630234206164" duration="5216000" />
+      <workItem from="1630387216665" duration="20795000" />
+      <workItem from="1630470921319" duration="11899000" />
+      <workItem from="1630488292421" duration="9185000" />
+      <workItem from="1630557072251" duration="16353000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
