@@ -12,26 +12,21 @@ class Invoice extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table ='invoices';
+    protected $table = 'invoices';
 
-
-
-//    public function invoiceItems(){
-//        return $this->hasMany(InvoiceItem::class,'id','invoice_id');
-//    }
-
-    public function invoiceItems(){
+    public function invoiceItems()
+    {
         return $this->hasMany(InvoiceItem::class);
     }
 
-    public function client(){
-        return $this->belongsTo(Contact::class,'contact_id','id');
+    public function client()
+    {
+        return $this->belongsTo(Contact::class, 'contact_id', 'id');
     }
 
     public function scopeActive($query)
     {
-        return $query->where('owner_id',Auth::user()->id)->orderBy('created_at', 'desc');
+        return $query->where('owner_id', Auth::user()->id)->orderBy('created_at', 'desc');
     }
-
 
 }

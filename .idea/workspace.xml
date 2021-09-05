@@ -6,138 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="51b75579-cbe1-4385-9b38-e58e93176a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/auth/signUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/auth/signUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/addCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/addCustomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/addSupplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/addSupplier.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/editCustomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/editCustomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/contacts/editSupplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/contacts/editSupplier.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/core/AppBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/core/AppBar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/components/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/core/Drawer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/expense/addExpense.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/invoiceTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/invoiceTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/payment/addPayment.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/payment/viewPayment.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addBrand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addBrand.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addCategory.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/addProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/addProduct.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editBrand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editBrand.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editCategory.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/editSingleProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/editSingleProduct.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/searchInvoiceProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/searchInvoiceProduct.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/product/searchProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/product/searchProduct.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/purchase/purchaseTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/purchase/purchaseTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/sell/sellTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/service/addService.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/service/addService.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/service/editService.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/service/editService.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/stock/transferTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addColor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addColor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addType.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/addVehicle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/addVehicle.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/editColor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/editColor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/components/vehicle/editType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/vehicle/editType.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/lang/bn.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/lang/bn.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/lang/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/layouts/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/layouts/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/advance/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/business-setting-and-location/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/commission/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/customer-groups.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/customers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/contact/customers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/contact/supplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/contact/supplier.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/pages/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/dashboard/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/add.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/category.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/expense/list.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/edit/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/edit/_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/pos/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/brand.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/category.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/product/unit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/product/unit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/edit/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/edit/_id.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/return.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/sell/create.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/sell/list.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/service/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/service/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/stockTransfer/add.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/stockTransfer/list.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/vehiclecolor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/vehiclecolor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/pages/vehicle/vehicletype.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/vehicle/vehicletype.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/reports/collection.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/reports/payment.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/reports/sales.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-End/store/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/store/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdvanceController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessLocationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommissionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerGroupController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseCategoryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OpeningStockQtyController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentMethodController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchasePaymentController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalePurchaseReturnController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VehicleTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VehicleTypeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdvanceResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CustomerGroupResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ExpenseCategoryResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ExpenseResource.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OpeningStockQtyResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrderResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentMethodResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentModeResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PaymentResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductVariationResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseItemsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseItemsResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SalePurchaseReturnResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SaleResource.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UnitResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UnitResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/VehicleResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/VehicleResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Invoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PurchaseItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PurchaseItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2017_07_27_104124_create_expense_categories_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_14_050409_create_expenses_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_064125_create_opening_stock_qties_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_091107_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_091107_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_105726_create_purchase_payments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_065635_create_sales_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_070645_create_sale_items_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/vehicle_management (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/vehicle_management (1).sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +185,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Front-End/assets/image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Front-End/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -310,6 +196,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\vehicle_inventory\Front-End\components" />
       <recent name="D:\projects\vehicle_inventory\Front-End\assets\image" />
     </key>
   </component>
@@ -347,7 +234,10 @@
       <workItem from="1630387216665" duration="20795000" />
       <workItem from="1630470921319" duration="11899000" />
       <workItem from="1630488292421" duration="9185000" />
-      <workItem from="1630557072251" duration="16353000" />
+      <workItem from="1630557072251" duration="17010000" />
+      <workItem from="1630815556707" duration="8639000" />
+      <workItem from="1630824752160" duration="7690000" />
+      <workItem from="1630837729565" duration="5949000" />
     </task>
     <servers />
   </component>
@@ -364,5 +254,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

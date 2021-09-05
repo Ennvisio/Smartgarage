@@ -38,6 +38,8 @@
   "created":" তৈরি তারিখ",
   "due":"বকেয়া",
   "reports": "রিপোর্ট",
+  "purchase_report": "ক্রয় রিপোর্ট",
+  "invoice_report": "ইনভয়েস রিপোর্ট",
   "user_profile": "ব্যবহারকারীর প্রফাইল",
   "settings": "সেটিংস",
   "leatest_transactions":"সর্বশেষ লেনদেন এর তথ্য",
@@ -245,5 +247,12 @@
   "edit": "সম্পাদনা",
   "delete": "ডিলিট",
   "tax": "ট্যাক্স",
-  "discount": "মূল্যছাড়"
+  "discount": "মূল্যছাড়",
+  "orders_today": "আজকের অর্ডারস",
+  "sales_today":"আজকের বিক্রয়সমূহ",
+  "search_by_purchase_date": "ক্রয়ের তারিখ অনুসারে খুঁজুন",
+  "search_by_invoice_date": "ইনভয়েস তারিখ অনুসারে খুঁজুন",
+  "subtotal_after_tax": "ট্যাক্স যোগ করার পর",
+  "subtotal_after_discount": "মূল্যছাড়ের পর",
+  "make_payment": "প্যামেণ্ট করুন"
 }

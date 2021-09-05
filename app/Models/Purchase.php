@@ -31,25 +31,19 @@ class Purchase extends Model
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
-    
-    // public function return()
-    // {
-    //     return $this->morphMany(SellPurchaseReturn::class,'returnable');
-    // }
 
     // public function media()
     // {
     //     return $this->morphOne(File::class,'fileable');
     // }
-    
-    // public function payments()
-    // {
-    //     return $this->morphMany(Payment::class,'paymentable');
-    // }
 
     public function scopeActive($query)
     {
-        return $query->where('owner_id', Auth::user()->owner_id)->orderBy('created_at', 'desc');
+        return $query->where('owner_id', Auth::user()->id)->orderBy('created_at', 'desc');
+    }
+    public function payments()
+    {
+        return $this->morphMany(Payment::class, 'paymentable');
     }
 
 }

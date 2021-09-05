@@ -3,6 +3,7 @@
     <v-overlay :value="full_loading">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
+    <add-payment :item="singleitem" type="purchase" />
     <v-row justify="center">
       <v-dialog v-model="confirmation" max-width="300">
         <v-card>
@@ -70,6 +71,14 @@
                   <v-list>
                     <v-list-item
                       link
+                      v-if="item.due_amount != 0"
+                      @click="openAddPayment(item)"
+                    >
+                      <v-icon>mdi-plus</v-icon>
+                      <v-list-item-title>Add Payment</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      link
                       :to="{
                         name: 'purchase-view-id',
                         params: { id: item.id }
@@ -106,14 +115,14 @@
   </v-container>
 </template>
 <script>
-
+import addPayment from "~/components/payment/addPayment";
 export default {
   name: "purchase",
   middleware: "auth",
   head: {
     title: "Purchase List"
   },
-  components: {},
+  components: {addPayment},
   data() {
     return {
       full_loading: false,
@@ -209,6 +218,10 @@ export default {
   methods: {
     onPageChange() {
       this.getPurchaseList();
+    },
+    openAddPayment(item) {
+      this.singleitem = item;
+      this.$store.commit("SET_MODAL", { type: "addpayment", status: true });
     },
     deletePurchase(item) {
       this.confirmation = true;

@@ -204,7 +204,6 @@ export default {
             }
           ]
         },
-
         {
           icon: "mdi-cart-arrow-right",
           title: this.$t("invoice"),
@@ -222,7 +221,23 @@ export default {
             }
           ]
         },
-
+        {
+          title: this.$t("reports"),
+          icon: "mdi-link",
+          to: "/reports",
+          children: [
+            {
+              icon: "mdi-inbox-arrow-up",
+              title: this.$t("purchase"),
+              to: "/purchase"
+            },
+            {
+              icon: "mdi-inbox-arrow-up",
+              title: this.$t("invoice"),
+              to: "/invoice"
+            },
+          ]
+        },
       ];
     }
   },

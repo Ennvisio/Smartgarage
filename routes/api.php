@@ -72,14 +72,15 @@ Route::get('dashboard-data', [UserController::class, 'dashboardData']);
 Route::group(
     [
         'middleware' => 'api',
-        'namespace' => 'App\Http\Controllers',
-        'prefix' => 'reports',
+        'namespace'  => 'App\Http\Controllers',
+        'prefix'     => 'report',
     ],
     function ($router) {
-        Route::get('expense', 'ReportController@expenseReport');
-        Route::get('collection', 'ReportController@collectionReport');
-        Route::get('payment', 'ReportController@paymentReport');
-        Route::get('sales', 'ReportController@salesReport');
+        Route::get('total-purchase', [\App\Http\Controllers\ReportController::class,'report_purchase'])->name('report-purchase.index');
+        Route::post('search/total-purchase', [\App\Http\Controllers\ReportController::class,'searchPurchase']);
+        Route::get('total-invoice', [\App\Http\Controllers\ReportController::class,'report_invoice'])->name('report-invoice.index');
+        Route::post('search/total-invoice', [\App\Http\Controllers\ReportController::class,'searchInvoice']);
+
     }
 );
 

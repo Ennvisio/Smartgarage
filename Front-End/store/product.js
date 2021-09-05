@@ -49,6 +49,18 @@ export const getters = {
     let totalamount = parseInt(after_discount);
     return totalamount;
   },
+  subTotalAfterTax(state, getters) {
+    let price = getters.subTotalPrice;
+    let purchase_tax = state.purchase_tax;
+    let after_tax = (price * purchase_tax) / 100;
+    return parseFloat(after_tax);
+  },
+  subTotalAfterDiscount(state, getters) {
+    let price = getters.subTotalPrice;
+    let purchase_discount = state.purchase_discount;
+    let after_discount = parseFloat(price - purchase_discount);
+    return after_discount;
+  },
   subTotalPrice(state, getters) {
     let items = getters.getPurchaseItems;
     let price = 0;
@@ -59,7 +71,6 @@ export const getters = {
     }
     return price;
   },
-
   invoiceTotalPrice(state, getters) {
     let price = getters.invoiceSubTotalPrice;
     let invoice_discount = state.invoice_discount;
@@ -182,10 +193,6 @@ export const actions = {
       price: price,
       discount: discount,
       tax: tax,
-
-      //subtotal: parseInt(purchase_price) + parseInt(tax * purchase_price) / 100
-
-      // subtotal: parseInt(price) + parseInt(tax * price) / 100
       subtotal: parseFloat(price) + parseFloat(tax * price) / 100
     };
     commit("ADD_PURCHASE_ITEMS", item);

@@ -26,7 +26,7 @@ class InvoiceResource extends JsonResource
             'due_price' => $this->due_price,
             'discount' => $this->discount,
             'vat' => $this->vat,
-            'status' => $this->status,
+            'status' => $this->payment_status,
         ];
         if ($request->route()->parameters()) {
             $data['items'] = InvoiceItemResource::collection($this->invoiceItems);

@@ -241,6 +241,14 @@
   "delete": "Delete",
   "tax": "Tax",
   "discount": "Discount",
-  "back": "Back"
-
+  "back": "Back",
+  "orders_today": "Orders Today",
+  "sales_today":"Sales Today",
+  "purchase_report": "Purchase Report",
+  "invoice_report": "Invoice Report",
+  "search_by_purchase_date": "Search by Purchase Date",
+  "search_by_invoice_date": "Search by Invoice Date",
+  "subtotal_after_tax": "Sub Total After Tax",
+  "subtotal_after_discount": "Sub Total After Discount",
+  "make_payment": "Make Payment"
 }

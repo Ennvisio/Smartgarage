@@ -6,7 +6,7 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/002-increased-revenue.svg"/>
             <p class="body-1 mt-2">
-              Products
+              {{$t('products')}}
             </p>
             <p class="counter">
               {{ number_of_products }}
@@ -19,7 +19,7 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/003-medical.svg"/>
             <p class="body-1 mt-2">
-              Orders Today
+              {{$t('orders_today')}}
             </p>
             <p class="counter">
               {{ number_of_orders }}
@@ -35,10 +35,10 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/004-commission.svg"/>
             <p class="body-1 mt-2">
-              Sales Today
+              {{$t('vehicles')}}
             </p>
             <p class="counter">
-              {{ number_of_sells }}
+              {{ number_of_vehicles }}
             </p>
             <!--            <p class="details">-->
             <!--              Details-->
@@ -51,7 +51,7 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/005-profits.svg"/>
             <p class="body-1 mt-2">
-              Clients
+              {{$t('clients')}}
             </p>
             <p class="counter">
               {{ number_of_clients }}
@@ -101,7 +101,6 @@
             <v-tabs>
               <v-tab>Sales</v-tab>
               <v-tab>Purchase</v-tab>
-              <v-tab>Payment</v-tab>
 
               <v-tab-item>
                 <v-data-table
@@ -119,14 +118,7 @@
                   class="reporttable"
                 ></v-data-table>
               </v-tab-item>
-              <v-tab-item>
-                <v-data-table
-                  :headers="headers"
-                  :items="desserts"
-                  :hide-default-footer="true"
-                  class="reporttable"
-                ></v-data-table>
-              </v-tab-item>
+
             </v-tabs>
           </v-card-text>
         </v-card>
@@ -276,6 +268,7 @@ export default {
       number_of_orders: "",
       number_of_sells: "",
       number_of_clients: "",
+      number_of_vehicles: "",
       recent_products: "",
       dashboardinfo: {},
       reportfor: "yearly",
@@ -360,6 +353,7 @@ export default {
         this.number_of_products = res.data.number_of_product;
         this.number_of_orders = res.data.number_of_invoice;
         this.number_of_sells = res.data.number_of_purchase;
+        this.number_of_vehicles = res.data.number_of_vehicles;
         this.number_of_clients = res.data.number_of_clients;
         this.recent_products = res.data.recent_products;
 

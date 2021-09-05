@@ -64,7 +64,7 @@
               <purchase-table/>
               <v-row no-gutters>
                 <v-col cols="12" md="4" sm="12" xl="4">
-                  <span>{{ $t("tax") }}</span>
+                  <span>{{ $t("tax") }}:(%)</span>
                   <v-text-field
                     outlined
                     dense
@@ -84,17 +84,113 @@
                     @keyup="addDiscount($event.target.value)"
                   ></v-text-field>
                 </v-col>
+
                 <v-col cols="12" md="4" sm="12" xl="4">
-                  <span>{{ $t("paid_amount") }}</span>
-                  <v-text-field
+                  <span>{{ $t("description") }}</span>
+                  <v-textarea
+                    rows="2"
                     outlined
                     dense
                     required
-                    v-model="form.paid_price"
-                  ></v-text-field>
+                    v-model="form.details"
+                  ></v-textarea>
                 </v-col>
-                <v-col cols="12">
-                  <h2 class="text-right">Total: {{ grandTotal }}</h2>
+              </v-row>
+              <div v-if="isEdit == false">
+                <h2 class="overline variation-title mb-2 text-center">
+                  {{ $t("make_payment") }}
+                </h2>
+                <v-row >
+                  <v-col cols="12" md="4" sm="12" xl="4">
+                    <span>{{ $t("paid_amount") }}</span>
+                    <v-text-field
+                      outlined
+                      dense
+                      required
+                      v-model="form.paid_price"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" md="4" sm="12" xl="4">
+                    <span>{{ $t("select_payment_method") }}</span>
+                    <v-select
+                      v-model="form.payment_method"
+                      :items="methods"
+                      item-text="name"
+                      item-value="id"
+                      dense
+                      outlined
+                    ></v-select>
+                  </v-col>
+                  <v-col cols="12" md="4" sm="12" xl="4">
+<!--                    <span>{{ $t("payment_details") }}</span>-->
+<!--                    <v-textarea-->
+<!--                      rows="2"-->
+<!--                      outlined-->
+<!--                      dense-->
+<!--                      required-->
+<!--                      v-model="form.payment_details"-->
+<!--                    ></v-textarea>-->
+                  </v-col>
+                  <v-col cols="12" md="4" sm="12" xl="4">
+                    <span>{{ $t("payment_details") }}</span>
+                    <v-textarea
+                      rows="2"
+                      outlined
+                      dense
+                      required
+                      v-model="form.payment_details"
+                    ></v-textarea>
+                  </v-col>
+                </v-row>
+              </div>
+              <v-row >
+                <v-col cols="12" md="7"></v-col>
+                <v-col cols="12" md="5">
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <b>{{ $t("sub_total") }} : </b>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <p class="text-right">{{ subTotal}}</p>
+                  </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <b>{{ $t("subtotal_after_tax") }} : </b>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <p class="text-right">{{ subTotalAfterTax}}</p>
+                    </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <b>{{ $t("subtotal_after_discount") }} : </b>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <p class="text-right">{{ subTotalAfterDiscount}}</p>
+                    </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <b>{{ $t("due_amount") }} : </b>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <p class="text-right">{{ dueAmount}}</p>
+                    </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <b>{{ $t("total") }} : </b>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <p class="text-right">{{ grandTotal}}</p>
+                    </v-col>
+                  </v-row>
+                  <v-divider></v-divider>
                 </v-col>
               </v-row>
               <v-row>
@@ -147,9 +243,9 @@ export default {
       valid: false,
       isLoading: false,
       purchase: "purchase",
-      purchase_statuses: ["Received", "Pending", "Ordered", "Draft", "Final"],
+      purchase_statuses: ["Received", "Pending", "Ordered"],
       modal: false,
-      // form: {},
+      methods: ["Cash", "Card", "Bank Transfer"],
       form: {
         contact_id: "",
         purchase_status: "",
@@ -157,6 +253,8 @@ export default {
         purchase_tax: "",
         purchase_discount: "",
         paid_price: "",
+        details: "",
+        payment_details: ""
       },
     };
   },
@@ -165,9 +263,23 @@ export default {
       let subtotal = this.$store.getters["product/subTotalPrice"];
       return Math.round(subtotal);
     },
+    dueAmount() {
+      let grandtotal = this.$store.getters["product/totalPrice"];
+      let due = parseFloat(grandtotal - this.form.paid_price)
+      let result = due <= 0 ? 0 : due;
+      return Math.round(result);
+    },
     grandTotal() {
       let grandtotal = this.$store.getters["product/totalPrice"];
       return Math.round(grandtotal);
+    },
+    subTotalAfterTax() {
+      let subTotalAfterTax = this.$store.getters["product/subTotalAfterTax"];
+      return Math.round(subTotalAfterTax);
+    },
+    subTotalAfterDiscount() {
+      let subTotalAfterDiscount = this.$store.getters["product/subTotalAfterDiscount"];
+      return Math.round(subTotalAfterDiscount);
     },
     purchaseItems() {
       let products = this.$store.getters["product/getPurchaseItems"];
@@ -179,6 +291,7 @@ export default {
   mounted() {
     if (Object.keys(this.data).length > 1) {
       this.isEdit = true;
+      this.$refs.form.reset()
       this.form = this.data;
       this.$store.commit("product/SET_PURCHASE_PRODUCTS", this.data.items);
     }
@@ -259,7 +372,8 @@ export default {
 
 <style scoped>
 
-span {
+span,p,b {
   color: #000;
 }
+
 </style>
