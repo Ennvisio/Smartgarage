@@ -132,9 +132,9 @@ class PurchaseController extends Controller
             if ($request->has('purchase_discount')) {
                 $purchase->purchase_discount = $request->purchase_discount;
             }
-            if ($request->has('paid_price')) {
-                $purchase->paid_amount = $request->paid_price;
-            }
+//            if ($request->has('paid_price')) {
+//                $purchase->paid_amount = $request->paid_price;
+//            }
             if ($request->has('purchase_tax')) {
                 $purchase->purchase_tax = $request->purchase_tax;
             }
@@ -178,7 +178,6 @@ class PurchaseController extends Controller
                         $item_subtotal_price += $purchase_item->total_price;
                     }
                 }
-
             }
             if ($purchase->purchase_tax > 0) {
                 $taxInPercentage = ($purchase->purchase_tax / 100);
@@ -187,9 +186,9 @@ class PurchaseController extends Controller
             $purchase->total_purchase_quantity = $item_purchase_quantity;
             $purchase->total_cost = ($item_subtotal_price + $afterTax) - $purchase->purchase_discount;
             $purchase->total_cost = $item_subtotal_price;
-            $due_amount = $purchase->total_cost - $purchase->paid_amount;
-            $purchase->due_amount =$due_amount <= 0? 0 :$due_amount;
-            $purchase->payment_status = $purchase->due_amount == 0 ? "Paid" : "Due";
+//            $due_amount = $purchase->total_cost - $purchase->paid_amount;
+//            $purchase->due_amount =$due_amount <= 0? 0 :$due_amount;
+//            $purchase->payment_status = $purchase->due_amount == 0 ? "Paid" : "Due";
             $purchase->save();
             DB::commit();
         } catch (\Exception $e) {
@@ -209,10 +208,8 @@ class PurchaseController extends Controller
     //For payment
     public function addPayment(Request $request, $id)
     {
-
         $purchase = Purchase::findOrFail($id);
         $previousPayment = $purchase->payments->sum('payment_amount');
-
         if ($purchase->total_cost >= ($previousPayment + $request->payment_amount)) {
             $newPayment = $purchase->payments()->create([
                 'payment_amount' => $request->payment_amount,
@@ -228,7 +225,6 @@ class PurchaseController extends Controller
                 $purchase->payment_status = "Paid";
             }
             $purchase->save();
-
             return response(new PurchaseResource($purchase), Response::HTTP_OK);
         } elseif ($purchase->total_cost < ($previousPayment + $request->payment_amount)) {
             return response()->json(['success' => false, 'message' => 'You can not pay more than the original amount!'], 400);

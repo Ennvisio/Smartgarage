@@ -1,8 +1,9 @@
 <template>
-  <v-container grid-list-sm class="mt-5" v-if="invoiceItemId ==''">
+  <v-container grid-list-sm class="mt-5">
     <v-overlay :value="full_loading">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
+    <add-payment  @paymentSuccess="updateParent" :item="singleitem" type="invoice"/>
     <v-row justify="center">
       <v-dialog v-model="confirmation" max-width="300">
         <v-card>
@@ -60,8 +61,22 @@
                     </v-btn>
                   </template>
                   <v-list>
-                    <v-list-item link @click="invoiceDetail(item)">
-                      <v-list-item-title>{{ $t("view") }}</v-list-item-title>
+                    <v-list-item
+                      link
+                      v-if="item.due_amount != 0"
+                      @click="openAddPayment(item)"
+                    >
+                      <v-icon>mdi-plus</v-icon>
+                      <v-list-item-title>Add Payment</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      link
+                      :to="{
+                        name: 'invoice-view-id',
+                        params: { id: item.id }
+                      }"
+                    >
+                      <v-list-item-title> {{ $t("view") }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
                       link
@@ -92,22 +107,19 @@
         </v-card>
       </v-col>
     </v-row>
-
   </v-container>
-  <div v-else>
-    <invoice-detail @clicked="onClickChild" :invoiceId="invoiceItemId"/>
-  </div>
+
 </template>
 
 <script>
-
+import addPayment from "~/components/payment/addPayment";
 export default {
   name: "list",
   middleware: "auth",
   head: {
     title: "Invoice List"
   },
-  components: {},
+  components: {addPayment},
   data() {
     return {
       full_loading: false,
@@ -162,12 +174,12 @@ export default {
         {
           sortable: false,
           text: this.$t("due_amount"),
-          value: "due_price"
+          value: "due_amount"
         },
         {
           sortable: false,
-          text: this.$t("tax"),
-          value: "vat"
+          text: this.$t("payment_status"),
+          value: "payment_status"
         },
         {
           sortable: false,
@@ -181,6 +193,7 @@ export default {
   },
   mounted() {
     this.getInvoiceList();
+    this.updateParent();
   },
   methods: {
     onPageChange() {
@@ -193,7 +206,15 @@ export default {
     invoiceDetail(val) {
       this.invoiceItemId = val;
     },
-
+    updateParent(value) {
+      if (value == true) {
+        this.getInvoiceList();
+      }
+    },
+    openAddPayment(item) {
+      this.singleitem = item;
+      this.$store.commit("SET_MODAL", { type: "addpayment", status: true });
+    },
     deleteInvoice(item) {
       this.confirmation = true;
       this.invoiceId = item.id;

@@ -122,14 +122,6 @@
                     ></v-select>
                   </v-col>
                   <v-col cols="12" md="4" sm="12" xl="4">
-<!--                    <span>{{ $t("payment_details") }}</span>-->
-<!--                    <v-textarea-->
-<!--                      rows="2"-->
-<!--                      outlined-->
-<!--                      dense-->
-<!--                      required-->
-<!--                      v-model="form.payment_details"-->
-<!--                    ></v-textarea>-->
                   </v-col>
                   <v-col cols="12" md="4" sm="12" xl="4">
                     <span>{{ $t("payment_details") }}</span>
@@ -151,7 +143,7 @@
                       <b>{{ $t("sub_total") }} : </b>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <p class="text-right">{{ subTotal}}</p>
+                      <p class="text-right">{{ subTotal}} টাকা</p>
                   </v-col>
                   </v-row>
                   <v-divider></v-divider>
@@ -160,7 +152,7 @@
                       <b>{{ $t("subtotal_after_tax") }} : </b>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <p class="text-right">{{ subTotalAfterTax}}</p>
+                      <p class="text-right">{{ subTotalAfterTax}} টাকা</p>
                     </v-col>
                   </v-row>
                   <v-divider></v-divider>
@@ -169,7 +161,7 @@
                       <b>{{ $t("subtotal_after_discount") }} : </b>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <p class="text-right">{{ subTotalAfterDiscount}}</p>
+                      <p class="text-right">{{ subTotalAfterDiscount}} টাকা</p>
                     </v-col>
                   </v-row>
                   <v-divider></v-divider>
@@ -178,7 +170,7 @@
                       <b>{{ $t("due_amount") }} : </b>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <p class="text-right">{{ dueAmount}}</p>
+                      <p class="text-right">{{ dueAmount}} টাকা</p>
                     </v-col>
                   </v-row>
                   <v-divider></v-divider>
@@ -187,7 +179,7 @@
                       <b>{{ $t("total") }} : </b>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <p class="text-right">{{ grandTotal}}</p>
+                      <p class="text-right">{{ grandTotal}} টাকা</p>
                     </v-col>
                   </v-row>
                   <v-divider></v-divider>
@@ -375,5 +367,4 @@ export default {
 span,p,b {
   color: #000;
 }
-
 </style>

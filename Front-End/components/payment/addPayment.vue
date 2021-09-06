@@ -110,13 +110,14 @@
 <script>
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
+
 export default {
   props: ["item", "type"],
   name: "addPayment",
   components: {DatePicker},
   data() {
     return {
-      success:false,
+      success: false,
       isLoading: false,
       valid: true,
       paymentamountRules: [
@@ -134,7 +135,7 @@ export default {
         bank_name: "",
         account_no: ""
       },
-      payable_amount:"",
+      payable_amount: "",
       methods: ["Cash", "Card", "Bank Transfer"],
     };
   },
@@ -149,7 +150,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.payable_amount)
   },
 
   methods: {
@@ -173,13 +173,15 @@ export default {
               this.$store.commit("SET_ALERT", data);
               this.$store.commit("SET_MODAL", false);
               this.$emit("refresh");
+              this.success = true;
+              this.$emit('paymentSuccess', this.success)
             });
         }
-      } else if (this.type == "sell") {
+      } else if (this.type == "invoice") {
         if (this.$refs.form.validate()) {
           this.isLoading = true;
           await this.$axios
-            .patch(`sell/addpayment/${this.item.id}`, this.form)
+            .patch(`invoice/addpayment/${this.item.id}`, this.form)
             .then((res) => {
               this.isLoading = false;
               this.$refs.form.reset();
@@ -191,7 +193,7 @@ export default {
               this.$store.commit("SET_ALERT", data);
               this.$store.commit("SET_MODAL", false);
               this.$emit("refresh");
-              this.success=true;
+              this.success = true;
               this.$emit('paymentSuccess', this.success)
             });
         }

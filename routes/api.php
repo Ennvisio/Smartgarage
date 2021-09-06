@@ -114,6 +114,7 @@ Route::resource('service', \App\Http\Controllers\ServiceController::class);
 
 Route::resource('purchase', PurchaseController::class);
 Route::patch('purchase/addpayment/{id}', [PurchaseController::class, 'addPayment']);
+Route::patch('invoice/addpayment/{id}', [\App\Http\Controllers\InvoiceController::class, 'addPayment']);
 Route::get('purchase-payment', [PurchaseController::class, 'viewPayment']);
 Route::get('purchase-items', [PurchaseController::class, 'purchaseItemsList']);
 

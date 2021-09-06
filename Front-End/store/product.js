@@ -55,10 +55,22 @@ export const getters = {
     let after_tax = (price * purchase_tax) / 100;
     return parseFloat(after_tax);
   },
+  invoiceSubTotalAfterTax(state, getters) {
+    let price = getters.invoiceSubTotalPrice;
+    let invoice_tax = state.invoice_tax;
+    let after_tax = (price * invoice_tax) / 100;
+    return parseFloat(after_tax);
+  },
   subTotalAfterDiscount(state, getters) {
     let price = getters.subTotalPrice;
     let purchase_discount = state.purchase_discount;
     let after_discount = parseFloat(price - purchase_discount);
+    return after_discount;
+  },
+  invoiceSubTotalAfterDiscount(state, getters) {
+    let price = getters.invoiceSubTotalPrice;
+    let invoice_discount = state.invoice_discount;
+    let after_discount = parseFloat(price - invoice_discount);
     return after_discount;
   },
   subTotalPrice(state, getters) {
@@ -78,11 +90,8 @@ export const getters = {
     let invoice_discount_percentage = (price * invoice_tax) / 100;
     let invoice_after_tax = price + invoice_discount_percentage;
     let invoice_after_discount = invoice_after_tax - invoice_discount;
-    // let invoice_total_amount = parseInt(invoice_after_discount);
-    // let invoice_total_amount = parseInt(invoice_after_discount) <0 ?0 : parseInt(invoice_after_discount);
-    let invoice_total_amount = parseFloat(invoice_after_discount) <0 ?0 : parseFloat(invoice_after_discount);
+    let invoice_total_amount = parseFloat(invoice_after_discount);
     return invoice_total_amount;
-    // return final_amount;
   },
   invoiceSubTotalPrice(state, getters) {
     let sitems = getters.getInvoiceItems;

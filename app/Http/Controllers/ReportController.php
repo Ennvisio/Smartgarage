@@ -98,11 +98,18 @@ class ReportController extends Controller
 
     public function searchPurchase(Request $request)
     {
+
         $from_date = $request->date_range[0];
         $end_date = $request->date_range[1];
+        $contact_id =$request->contact_id;
+
         $results="";
         if(($from_date && $end_date) != null) {
             $results=Purchase::active()->whereBetween('purchase_date', [$from_date, $end_date])->get();
+        }
+        if ($contact_id !== null)
+        {
+            $results=Purchase::active()->where('contact_id', $contact_id)->get();
         }
         else{
             $results=Purchase::active()->get();
@@ -113,7 +120,12 @@ class ReportController extends Controller
     {
         $from_date = $request->date_range[0];
         $end_date = $request->date_range[1];
+        $contact_id =$request->contact_id;
         $results="";
+        if ($contact_id !== null)
+        {
+            $results=Invoice::active()->where('contact_id', $contact_id)->get();
+        }
         if(($from_date && $end_date) != null) {
             $results=Invoice::active()->whereBetween('date', [$from_date, $end_date])->get();
         }

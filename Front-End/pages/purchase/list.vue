@@ -3,7 +3,7 @@
     <v-overlay :value="full_loading">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
-    <add-payment :item="singleitem" type="purchase" />
+    <add-payment @paymentSuccess="updateParent"  :item="singleitem" type="purchase" />
     <v-row justify="center">
       <v-dialog v-model="confirmation" max-width="300">
         <v-card>
@@ -214,10 +214,16 @@ export default {
   },
   mounted() {
     this.getPurchaseList();
+    this.updateParent();
   },
   methods: {
     onPageChange() {
       this.getPurchaseList();
+    },
+    updateParent(value) {
+      if (value == true) {
+        this.getPurchaseList();
+      }
     },
     openAddPayment(item) {
       this.singleitem = item;

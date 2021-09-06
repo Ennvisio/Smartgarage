@@ -23,8 +23,9 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices = Invoice::where('owner_id', auth()->user()->id)->paginate(10);
-        return  InvoiceResource::collection($invoices);
+        return InvoiceResource::collection($invoices);
     }
+
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -86,9 +87,17 @@ class InvoiceController extends Controller
                 $afterTax = round($item_subtotal_price * $taxInPercentage);
             }
             $invoice->total_cost = ($item_subtotal_price + $afterTax) - $invoice->discount;
-            $invoice->due_price =  $invoice->total_cost - $invoice->paid_price;
-            $invoice->payment_status = $invoice->due_price == 0 ? "Paid" : "Due";
+//            $invoice->due_price = $invoice->total_cost - $invoice->paid_price;
+//            $invoice->payment_status = $invoice->due_price == 0 ? "Paid" : "Due";
             $invoice->save();
+            if ($request->paid_price != null) {
+                $invoice->payments()->create([
+                    'payment_amount' => $request->paid_price,
+                    'payment_method' => $request->payment_method,
+                    'payment_date' => date("Y-m-d", strtotime($request->payment_date ? $request->payment_date : now())),
+                    'payment_details' => $request->payment_details,
+                ]);
+            }
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['success' => false, 'errmsg' => $e->getMessage()], 500);
@@ -101,12 +110,9 @@ class InvoiceController extends Controller
 
     public function update(Request $request, $id)
     {
-
         DB::beginTransaction();
         try {
-
             $invoice = Invoice::findOrFail($id);
-
             if ($request->has('contact_id')) {
                 $invoice->contact_id = $request->contact_id;
             }
@@ -200,8 +206,8 @@ class InvoiceController extends Controller
             }
 
             $invoice->total_cost = ($item_subtotal_price + $afterTax) - $invoice->discount;
-            $invoice->due_price = $invoice->total_cost - $invoice->paid_price;
-            $invoice->payment_status = $invoice->due_price == 0 ? "Paid" : "Due";
+//            $invoice->due_price = $invoice->total_cost - $invoice->paid_price;
+//            $invoice->payment_status = $invoice->due_price == 0 ? "Paid" : "Due";
             $invoice->save();
         } catch (\Exception $e) {
             DB::rollback();
@@ -248,7 +254,6 @@ class InvoiceController extends Controller
     {
         $items = InvoiceItem::where('invoice_id', $request->id)->get();
         $lists = '';
-
         if (!empty($items)) {
             $lists = $items->map(function ($value) {
                 return [
@@ -263,7 +268,32 @@ class InvoiceController extends Controller
                 ];
             });
         }
-
         return response()->json($lists);
     }
+    //For payment
+    public function addPayment(Request $request, $id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $previousPayment = $invoice->payments->sum('payment_amount');
+        if ($invoice->total_cost >= ($previousPayment + $request->payment_amount)) {
+            $newPayment = $invoice->payments()->create([
+                'payment_amount' => $request->payment_amount,
+                'payment_method' => $request->payment_method,
+                'card_no' => $request->card_no,
+                'bank_name'=>$request->bank_name,
+                'account_no'=>$request->account_no,
+                'payment_date' => date("Y-m-d", strtotime($request->payment_date ? $request->payment_date : now()))
+            ]);
+            $invoice->payment_status = "Due";
+            if ($invoice->total_cost == ($previousPayment + $request->payment_amount)) {
+                $invoice->payment_status = "Paid";
+            }
+            $invoice->save();
+            return response(new InvoiceResource($invoice), Response::HTTP_OK);
+        } elseif ($invoice->total_cost < ($previousPayment + $request->payment_amount)) {
+            return response()->json(['success' => false, 'message' => 'You can not pay more than the original amount!'], 400);
+        }
+    }
+
+
 }

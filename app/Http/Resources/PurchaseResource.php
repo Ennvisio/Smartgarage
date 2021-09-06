@@ -14,6 +14,19 @@ class PurchaseResource extends JsonResource
      */
     public function toArray($request)
     {
+        $payment_status='';
+        if(count($this->payments)>0)
+        {
+            if($this->payments->sum('payment_amount')==$this->total_cost)
+            {
+                $payment_status='Paid';
+            }
+            else{
+                $payment_status='Partial';
+            }
+        }else{
+            $payment_status='Due';
+        }
         $data = [
             'id' => $this->id,
             'purchase_number' => $this->purchase_number,
@@ -29,7 +42,8 @@ class PurchaseResource extends JsonResource
             'paid_price' =>round($this->payments->sum('payment_amount'),2),
 //            'due_amount' => $this->due_amount,
             'due_amount' => round($this->total_cost-$this->payments->sum('payment_amount'),2),
-            'payment_status' => $this->payment_status?$this->payment_status:"Due",
+//            'payment_status' => $this->payment_status?$this->payment_status:"Due",
+            'payment_status' => ucfirst($payment_status),
         ];
 
         if ($request->route()->parameters()) {

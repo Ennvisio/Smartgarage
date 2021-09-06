@@ -29,4 +29,10 @@ class Invoice extends Model
         return $query->where('owner_id', Auth::user()->id)->orderBy('created_at', 'desc');
     }
 
+    public function payments()
+    {
+        return $this->morphMany(Payment::class, 'paymentable');
+    }
+
+
 }

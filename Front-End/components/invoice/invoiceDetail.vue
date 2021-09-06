@@ -132,18 +132,15 @@ export default {
       this.loading = true;
       setTimeout(() => (this.loading = false), 2000);
     },
-
     async goBack() {
       this.invoiceId = '';
       this.$emit('clicked', this.invoiceId)
     },
-
     async getInvoiceInfos() {
       this.form.id = this.invoiceId.id;
       await this.$axios.post("/get-invoice-details", this.form).then(response => {
         this.invoiceItems = response.data;
       });
-
     },
   },
 };

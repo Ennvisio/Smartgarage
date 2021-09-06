@@ -2,7 +2,7 @@
   <v-container fluid style="min-height: 850px">
     <v-row justify="center">
       <v-col cols="12" sm="12" md="12">
-        <v-card class="mb-70">
+        <v-card class="mb-70" flat>
           <v-card-title>
             {{ $t("purchase_report") }}
           </v-card-title>
@@ -16,10 +16,22 @@
             >
               <v-row>
                 <v-col cols="12" md="4" sm="4" xl="3">
+                  <span>{{ $t("date") }}</span>
                   <date-picker v-model="form.date_range" value-type="format" :placeholder="$t('search_by_purchase_date')"
                                range></date-picker>
                 </v-col>
-                <v-col cols="12" md="2" sm="4" xl="3">
+                <v-col cols="12" md="4" sm="4" xl="3">
+                  <span>{{ $t("supplier") }}</span>
+                  <v-select
+                    v-model="form.contact_id"
+                    :items="suppliers"
+                    item-text="name"
+                    item-value="id"
+                    dense
+                    outlined
+                  ></v-select>
+                </v-col>
+                <v-col cols="12" md="4" sm="4" xl="3" class="mt-5">
                   <v-btn
                     dark
                     color="success"
@@ -43,6 +55,14 @@
                 :headers="headers"
                 :items="items"
               >
+                <template v-slot:item.purchase_number="{item}">
+                  <nuxt-link
+                    :to="{
+                        name: 'purchase-view-id',
+                        params: { id: item.id }
+                      }"
+                  >{{item.purchase_number}}</nuxt-link>
+                </template>
               </v-data-table>
             </div>
           </v-card-text>
@@ -66,8 +86,11 @@ export default {
     valid: true,
     message: "",
     error: null,
-    form:{},
+    form:{
+      contact_id:""
+    },
     items: [],
+    suppliers: []
   }),
   computed: {
     headers() {
@@ -113,6 +136,7 @@ export default {
   },
   mounted() {
     this.getAllPurchases();
+    this.getSuppliers();
   },
   methods: {
     reserve() {
@@ -122,6 +146,11 @@ export default {
     async getAllPurchases() {
       await this.$axios.get('/report/total-purchase').then(response => {
         this.items = response.data.data;
+      });
+    },
+    async getSuppliers() {
+      await this.$axios.get("/contact?type=supplier").then(response => {
+        this.suppliers = response.data.data;
       });
     },
     async submitForm() {
@@ -136,37 +165,10 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .v-application--is-ltr .v-text-field__suffix {
-  background-color: rgb(12, 113, 138);
-  cursor: pointer;
-  width: 115px;
-  height: 30px;
-  padding: 5px;
-  color: white;
-  border-radius: 5px;
-  padding-left: 8px;
-}
 
-::v-deep .v-card--reveal {
-  bottom: -15px;
-  opacity: 1 !important;
-  position: absolute;
-  width: 100%;
+span,p,b {
+  color: #000;
 }
-
-::v-deep .v-card > .v-card__progress + :not(.v-btn):not(.v-chip),
-.v-card > :first-child:not(.v-btn):not(.v-chip) {
-  margin-top: -6px;
-  width: 100%;
-}
-
-::v-deep .v-input input:active,
-.v-input input,
-.v-input textarea:active,
-.v-input textarea {
-  width: 500px;
-}
-
 ::v-deep
 .v-sheet
 button.v-btn.v-size--default:not(.v-btn--icon):not(.v-btn--fab) {

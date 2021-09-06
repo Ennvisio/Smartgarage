@@ -2,7 +2,7 @@
   <v-container fluid style="min-height: 850px">
     <v-row justify="center">
       <v-col cols="12" sm="12" md="12">
-        <v-card class="mb-70">
+        <v-card class="mb-70" flat>
           <v-card-title>
             {{ $t("invoice_report") }}
           </v-card-title>
@@ -16,10 +16,22 @@
             >
               <v-row>
                 <v-col cols="12" md="4" sm="4" xl="3">
+                  <span>{{ $t("date") }}</span>
                   <date-picker v-model="form.date_range" value-type="format" :placeholder="$t('search_by_invoice_date')"
                                range></date-picker>
                 </v-col>
-                <v-col cols="12" md="2" sm="4" xl="3">
+                <v-col cols="12" md="4" sm="4" xl="3">
+                  <span>{{ $t("client") }}</span>
+                  <v-select
+                    v-model="form.contact_id"
+                    :items="contacts"
+                    item-text="name"
+                    item-value="id"
+                    dense
+                    outlined
+                  ></v-select>
+                </v-col>
+                <v-col cols="12" md="2" sm="4" xl="3" class="mt-5">
                   <v-btn
                     dark
                     color="success"
@@ -43,6 +55,14 @@
                 :headers="headers"
                 :items="items"
               >
+                <template v-slot:item.invoice_number="{item}">
+                  <nuxt-link
+                    :to="{
+                        name: 'invoice-view-id',
+                        params: { id: item.id }
+                      }"
+                  >{{item.invoice_number}}</nuxt-link>
+                </template>
               </v-data-table>
             </div>
           </v-card-text>
@@ -66,7 +86,10 @@ export default {
     valid: true,
     message: "",
     error: null,
-    form:{},
+    form:{
+      contact_id:"",
+    },
+    contacts:[],
     items: [],
   }),
   computed: {
@@ -109,6 +132,7 @@ export default {
   },
   mounted() {
     this.getAllPurchases();
+    this.getCustomers();
   },
   methods: {
     reserve() {
@@ -118,6 +142,11 @@ export default {
     async getAllPurchases() {
       await this.$axios.get('/report/total-invoice').then(response => {
         this.items = response.data.data;
+      });
+    },
+    async getCustomers() {
+      await this.$axios.get("/get-clients").then(response => {
+        this.contacts = response.data;
       });
     },
     async submitForm() {

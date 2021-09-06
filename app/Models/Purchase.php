@@ -32,11 +32,6 @@ class Purchase extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-    // public function media()
-    // {
-    //     return $this->morphOne(File::class,'fileable');
-    // }
-
     public function scopeActive($query)
     {
         return $query->where('owner_id', Auth::user()->id)->orderBy('created_at', 'desc');
