@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51b75579-cbe1-4385-9b38-e58e93176a99" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
@@ -583,6 +584,28 @@
       <change afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/vehicle_management (1).sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/addOrUpdate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/invoice/invoiceDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/payment/addPayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/payment/addPayment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/purchase/addOrUpdate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/reports/invoiceReport.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/reports/invoiceReport.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/components/reports/purchaseReport.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/components/reports/purchaseReport.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/invoice/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/pages/purchase/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front-End/store/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front-End/store/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/InvoiceReportResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/InvoiceReportResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/InvoiceResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseReportResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseReportResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PurchaseResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Invoice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+>>>>>>> c274206418b8706509f3ee12044b736fd8cd2274
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -797,10 +820,14 @@
       <workItem from="1630824752160" duration="7690000" />
       <workItem from="1630837729565" duration="6673000" />
       <workItem from="1630902021479" duration="7054000" />
+<<<<<<< HEAD
       <workItem from="1630910588561" duration="7273000" />
       <workItem from="1630919484207" duration="530000" />
       <workItem from="1630920214580" duration="30000" />
       <workItem from="1631075793855" duration="1121000" />
+=======
+      <workItem from="1630910588561" duration="4347000" />
+>>>>>>> c274206418b8706509f3ee12044b736fd8cd2274
     </task>
     <servers />
   </component>

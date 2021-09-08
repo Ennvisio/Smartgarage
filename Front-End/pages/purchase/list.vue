@@ -116,7 +116,6 @@
 </template>
 <script>
 import addPayment from "~/components/payment/addPayment";
-
 export default {
   name: "purchase",
   middleware: "auth",

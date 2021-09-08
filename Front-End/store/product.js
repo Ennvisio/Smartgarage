@@ -203,7 +203,6 @@ export const actions = {
       discount: discount,
       tax: tax,
       subtotal: parseFloat(price) + parseFloat(tax * price) / 100
-
     };
     commit("ADD_PURCHASE_ITEMS", item);
   },
