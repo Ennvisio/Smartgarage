@@ -26,52 +26,50 @@ class ReportController extends Controller
     public function report_purchase(Request $request)
     {
         $purchase = Purchase::active()->get();
-        return PurchaseReportResource::collection($purchase);
+        return  PurchaseReportResource::collection($purchase);
     }
-
     public function report_invoice(Request $request)
     {
         $invoice = Invoice::active()->get();
-        return InvoiceReportResource::collection($invoice);
+        return  InvoiceReportResource::collection($invoice);
     }
 
     public function searchPurchase(Request $request)
     {
         $from_date = $request->date_range[0];
         $end_date = $request->date_range[1];
-        $contact_id = $request->contact_id;
+        $contact_id =$request->contact_id;
 
-        $results = "";
-
-        if (($from_date && $end_date) != null) {
-            $results = Purchase::active()->whereBetween('purchase_date', [$from_date, $end_date])->get();
+        $results="";
+        if ($contact_id !== null)
+        {
+            $results=Purchase::active()->where('contact_id', $contact_id)->get();
         }
-        if ($contact_id !== null) {
-            $results = Purchase::active()->where('contact_id', $contact_id)->get();
-        } else {
-            $results = "";
+        if(($from_date && $end_date) != null) {
+            $results=Purchase::active()->whereBetween('purchase_date', [$from_date, $end_date])->get();
         }
-        return PurchaseReportResource::collection($results);
+        else{
+            $results="";
+        }
+        return  PurchaseReportResource::collection($results);
     }
-
     public function searchInvoice(Request $request)
     {
         $from_date = $request->date_range[0];
         $end_date = $request->date_range[1];
-        $contact_id = $request->contact_id;
-        $results = "";
-
-
-        if (($from_date && $end_date) != null) {
-            $results = Invoice::active()->whereBetween('date', [$from_date, $end_date])->get();
+        $contact_id =$request->contact_id;
+        $results="";
+        if ($contact_id !== null)
+        {
+            $results=Invoice::active()->where('contact_id', $contact_id)->get();
         }
-
-        if ($contact_id !== null) {
-            $results = Invoice::active()->where('contact_id', $contact_id)->get();
-        } else {
-            $results = "";
+        if(($from_date && $end_date) != null) {
+            $results=Invoice::active()->whereBetween('date', [$from_date, $end_date])->get();
         }
-        return InvoiceReportResource::collection($results);
+        else{
+            $results="";
+        }
+        return  InvoiceReportResource::collection($results);
     }
 
 }

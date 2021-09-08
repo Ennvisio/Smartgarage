@@ -125,7 +125,6 @@ export default {
     this.getBrands();
   },
   methods: {
-
     onPageChange() {
       this.getBrands();
     },

@@ -62,6 +62,7 @@ class PurchaseController extends Controller
             $purchase->purchase_date = date("Y-m-d", strtotime($request->purchase_date));
             $purchase->purchase_discount = $request->purchase_discount;
             $purchase->purchase_tax = $request->purchase_tax;
+            $purchase->note = $request->details;
             $purchase->created_by = auth()->user()->id;
             $purchase->updated_by = auth()->user()->id;
             $purchase->save();

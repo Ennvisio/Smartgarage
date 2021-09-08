@@ -70,7 +70,6 @@
                     dense
                     required
                     v-model="form.purchase_tax"
-                    :rules="[v => !!v || 'Tax is required']"
                     @keyup="addTax($event.target.value)"
                   ></v-text-field>
                 </v-col>

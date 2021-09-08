@@ -50,12 +50,18 @@
             ></v-text-field>
           </v-card-title>
           <v-card-text>
-            <v-data-table :headers="headers" :items="items" :search="search">
+            <v-data-table :headers="headers" :items="items" :search="search" :hide-default-footer="true">
               <template v-slot:item.actions="{ item }">
                 <v-icon @click="editService(item)"> mdi-square-edit-outline</v-icon>
                 <v-icon @click="deleteService(item)">mdi-trash-can-outline</v-icon>
               </template>
             </v-data-table>
+            <v-pagination
+              class="pt-5"
+              v-model="pagination.current"
+              :length="pagination.total"
+              @input="onPageChange"
+            ></v-pagination>
           </v-card-text>
         </v-card>
       </v-col>
@@ -88,6 +94,10 @@ export default {
       categories: [],
       items: [],
       singleItem: {},
+      pagination: {
+        current: 1,
+        total: 0
+      },
     };
   },
   computed: {
@@ -132,14 +142,19 @@ export default {
     this.getServices();
   },
   methods: {
+    onPageChange() {
+      this.getServices();
+    },
     opendialog(type) {
       this.$store.commit("SET_MODAL", {type: type, status: true});
     },
     async getServices() {
       this.isLoading = true;
-      await this.$axios.get("/service").then((response) => {
-        this.items = response.data;
+      await this.$axios.get('/service?page=' + this.pagination.current).then(response => {
+        this.items = response.data.data;
         this.isLoading = false;
+        this.pagination.current = response.data.meta.current_page;
+        this.pagination.total = response.data.meta.last_page;
       });
     },
     deleteService(item) {

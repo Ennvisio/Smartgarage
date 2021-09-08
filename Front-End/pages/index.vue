@@ -1,8 +1,7 @@
 <template>
   <v-container class="v-centered">
-<!--    <h3 class="text-center mt-20">Welcome to Smart Garage</h3>-->
-    <v-row align="center" justify="center" style="height: 50vh">
-      <v-col cols="12" md="5" lg="5">
+    <v-row align="center" justify="center" style="height: 100vh">
+      <v-col cols="12" md="4" lg="4">
         <v-card
           elevation="5"
           class="login-card d-flex align-content-center flex-wrap "
@@ -45,31 +44,31 @@
                 <v-col class="d-flex" cols="12" sm="6" xsm="12" v-if="error">
                   <p class="danger">{{ error }}</p>
                 </v-col>
-                <v-col cols="12">
+                <v-col cols="6" align="left" style="margin-top:-20px">
+                  <v-checkbox
+                    value="1"
+                    label="Remember me"
+                    type="checkbox"
+                    required
+                  ></v-checkbox>
+                </v-col>
+                <v-col cols="6" align="right">
                   <v-btn
-                    block
-                    large
                     type="submit"
                     :disabled="!valid"
                     color="primary"
-                    elevation="7"
                     :loading="isLoading"
+                    waves-effect waves-light
                   >
                     Login
                   </v-btn>
                 </v-col>
-                <v-col cols="12">
-                  <div class="text-center mb-2">OR</div>
-                  <div class="text-center">
-                    <v-btn
-                      block
-                      color="info"
-                      elevation="7"
-                      to="/signup"
-                    >
-                      SignUp
-                    </v-btn>
-                  </div>
+                <v-col cols="12" class="mt-2" align="right">
+                  <!--                  <a href="#">Forgot Password?</a> <br />-->
+                  <!--                  <br />-->
+                  <v-btn color="success" elevation="7" to="/signup">
+                    Create an account
+                  </v-btn>
                 </v-col>
               </v-row>
             </v-form>
@@ -132,10 +131,10 @@ export default {
     },
 
     reset() {
-      this.$refs.form.reset();
+      this.$refs.loginForm.reset();
     },
     resetValidation() {
-      this.$refs.form.resetValidation();
+      this.$refs.loginForm.resetValidation();
     },
   },
 
@@ -151,16 +150,29 @@ export default {
   margin-top: 20px;
 }
 
-.login-card {
-  margin-top: 50px;
-}
-
 .v-application .pa-7 {
   padding: 15px !important;
 }
 
+.login-card {
+  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards;
+}
+
+@keyframes showUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transoform: scale(1);
+  }
+}
+
 .danger {
   color: red;
+}
+
+.v-card .v-card__title {
+  font-size: 18px !important;
 }
 
 </style>

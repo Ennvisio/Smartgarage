@@ -1,7 +1,7 @@
 <template>
   <v-container fluid grid-list-sm class="mt-5">
-    <v-row align="center" justify="center">
-      <v-col cols="12" md="6" lg="6">
+    <v-row align="center" justify="center"  style="height: 100vh">
+      <v-col cols="12" md="6" lg="4">
         <v-card
          elevation="5"
           class="signup-card d-flex align-content-center flex-wrap mb-70"
@@ -94,9 +94,10 @@
                 <v-col cols="12">
                   <v-btn
                     block
+                    large
                     type="submit"
                     :disabled="!valid"
-                    color="primary"
+                    color="success"
                     elevation="7"
                     :loading="isLoading"
                   >
@@ -104,18 +105,19 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="12">
-                   <div class="text-center mb-2">Or have an account? </div>
-                   <div class="text-center">
-                     <v-btn
+                  <div class="text-center mt-2 mb-2">Or have an account? </div>
+                  <div class="text-center">
+                    <v-btn
                       block
-                      color="info"
+                      large
+                      color="primary"
                       elevation="7"
                       to="/"
                     >
-                    Login
-                  </v-btn>
-                   </div>
-                 </v-col>
+                      Login
+                    </v-btn>
+                  </div>
+                </v-col>
               </v-row>
             </v-form>
           </v-card-text>
@@ -183,10 +185,10 @@ export default {
       }
     },
     reset() {
-      this.$refs.form.reset();
+      this.$refs.registerForm.reset();
     },
     resetValidation() {
-      this.$refs.form.resetValidation();
+      this.$refs.registerForm.resetValidation();
     },
   },
 }
@@ -195,11 +197,24 @@ export default {
 <style scoped>
 .signup-card
 {
- margin-top: 10px;
+  margin-top: 10px;
 }
 
 .v-application .pa-7 {
   padding: 15px !important;
 }
 
+.signup-card
+{
+  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards;
+}
+
+@keyframes showUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transoform: scale(1);
+  }
+}
 </style>

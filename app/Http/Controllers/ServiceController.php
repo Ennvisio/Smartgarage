@@ -16,8 +16,8 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::Active()->get();
-        return response(ServiceResource::collection($services), Response::HTTP_OK);
+        $services = Service::Active()->paginate(10);
+        return ServiceResource::collection($services);
     }
 
     public function store(Request $request)

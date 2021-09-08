@@ -21,3 +21,12 @@ export default {
 };
 </script>
 
+<style>
+
+#register {
+  background-image: url("~@/assets/image/register_pic.jpg");
+  background-size: cover;
+  background-position: top center;
+  /*height: 100vh;*/
+}
+</style>
