@@ -78,6 +78,7 @@
                 <v-col cols="12" md="4" sm="12" xl="4">
                   <span>{{ $t("tax") }}(%)</span>
                   <v-text-field
+                    type="number"
                     outlined
                     dense
                     required
@@ -89,6 +90,7 @@
                 <v-col cols="12" md="4" sm="12" xl="4">
                   <span>{{ $t("discount") }}</span>
                   <v-text-field
+                    type="number"
                     outlined
                     dense
                     required
@@ -115,6 +117,7 @@
                   <v-col cols="12" md="4" sm="12" xl="4">
                     <span>{{ $t("paid_amount") }}</span>
                     <v-text-field
+                      type="number"
                       outlined
                       dense
                       required
@@ -252,7 +255,9 @@ export default {
       categories: [],
       vehicles: [],
       vehicle_id: "",
-      form: {},
+      form: {
+        date: new Date().toISOString().substr(0, 10),
+      },
     };
   },
   computed: {
@@ -266,7 +271,7 @@ export default {
     },
     dueAmount() {
       let grandtotal = this.$store.getters["product/invoiceTotalPrice"];
-      let due =this.form.paid_price>=0? parseFloat(grandtotal - this.form.paid_price): parseFloat(grandtotal - 0)
+      let due = this.form.paid_price >= 0 ? parseFloat(grandtotal - this.form.paid_price) : parseFloat(grandtotal - 0)
       let result = due <= 0 ? 0 : due;
       return Math.round(result);
     },

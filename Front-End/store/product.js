@@ -17,11 +17,9 @@ export const getters = {
   getPurchaseItems(state) {
     return state.purchaseItems;
   },
-
   getInvoiceItems(state) {
     return state.invoiceItems;
   },
-
   transferTotalPrice(state,getters){
     let price = getters.transferSubTotalPrice;
     let shipping_cost = state.transfer_shipping_cost;
@@ -70,7 +68,7 @@ export const getters = {
   invoiceSubTotalAfterDiscount(state, getters) {
     let price = getters.invoiceSubTotalPrice;
     let invoice_discount = state.invoice_discount;
-    let after_discount = parseFloat(price - invoice_discount);
+    let after_discount = invoice_discount >0?parseFloat(price - invoice_discount):0;
     return after_discount;
   },
   subTotalPrice(state, getters) {
@@ -113,7 +111,6 @@ export const mutations = {
   SET_INVOICE_PRODUCTS(state, payload) {
     state.invoiceItems = payload;
   },
-
 
   ADD_PURCHASE_ITEMS(state, payload) {
     let items = state.purchaseItems;
@@ -179,6 +176,17 @@ export const mutations = {
 
   SET_INVOICE_TAX(state, payload) {
     state.invoice_tax = payload;
+  },
+  INIT_CART_ITEMS(state) {
+    state.purchaseItems = [];
+    state.purchase_discount=0;
+    state.purchase_tax=0;
+
+  },
+  INIT_INVOICE_ITEMS(state) {
+    state.invoiceItems = [];
+    state.invoice_discount=0;
+    state.invoice_tax=0;
   },
 };
 

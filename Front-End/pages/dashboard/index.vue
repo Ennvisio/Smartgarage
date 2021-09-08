@@ -6,11 +6,14 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/002-increased-revenue.svg"/>
             <p class="body-1 mt-2">
-              {{$t('products')}}
+              {{ $t('products') }}
             </p>
             <p class="counter">
               {{ number_of_products }}
             </p>
+            <nuxt-link to="product/list" class="float-right mt-n3 text-decoration-none" >
+              Details
+            </nuxt-link>
           </v-card-text>
         </v-card>
       </v-col>
@@ -19,14 +22,14 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/003-medical.svg"/>
             <p class="body-1 mt-2">
-              {{$t('orders_today')}}
+              {{ $t('orders_today') }}
             </p>
             <p class="counter">
               {{ number_of_orders }}
             </p>
-            <!--            <p class="details">-->
-            <!--              Details-->
-            <!--            </p>-->
+            <nuxt-link to="invoice/list" class="float-right mt-n3 text-decoration-none" >
+              Details
+            </nuxt-link>
           </v-card-text>
         </v-card>
       </v-col>
@@ -35,14 +38,14 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/004-commission.svg"/>
             <p class="body-1 mt-2">
-              {{$t('vehicles')}}
+              {{ $t('vehicles') }}
             </p>
             <p class="counter">
               {{ number_of_vehicles }}
             </p>
-            <!--            <p class="details">-->
-            <!--              Details-->
-            <!--            </p>-->
+            <nuxt-link to="vehicle/list" class="float-right mt-n3 text-decoration-none" >
+              Details
+            </nuxt-link>
           </v-card-text>
         </v-card>
       </v-col>
@@ -51,14 +54,14 @@
           <v-card-text class="pl-8 pt-6">
             <img src="~/assets/image/005-profits.svg"/>
             <p class="body-1 mt-2">
-              {{$t('clients')}}
+              {{ $t('clients') }}
             </p>
             <p class="counter">
               {{ number_of_clients }}
             </p>
-            <!--            <p class="details">-->
-            <!--              Details-->
-            <!--            </p>-->
+            <nuxt-link to="contact/customers" class="float-right mt-n3 text-decoration-none" >
+              Details
+            </nuxt-link>
           </v-card-text>
         </v-card>
       </v-col>
@@ -99,21 +102,20 @@
           >
           <v-card-text>
             <v-tabs>
-              <v-tab>Sales</v-tab>
               <v-tab>Purchase</v-tab>
-
+              <v-tab>Invoice</v-tab>
               <v-tab-item>
                 <v-data-table
-                  :headers="headers"
-                  :items="desserts"
+                  :headers="purchaseHeaders"
+                  :items="purchaseList"
                   :hide-default-footer="true"
                   class="reporttable"
                 ></v-data-table>
               </v-tab-item>
               <v-tab-item>
                 <v-data-table
-                  :headers="headers"
-                  :items="desserts"
+                  :headers="invoiceHeaders"
+                  :items="invoiceList"
                   :hide-default-footer="true"
                   class="reporttable"
                 ></v-data-table>
@@ -162,8 +164,7 @@ export default {
 
   data() {
     return {
-
-
+      isLoading: false,
       lineseries: [
         {
           name: "Desktops",
@@ -184,63 +185,9 @@ export default {
           price: "120-150",
         }
       ],
-      headers: [
-        {
-          text: "Dessert (100g serving)",
-          align: "start",
-          sortable: false,
-          value: "name"
-        },
-        {text: "Calories", value: "calories"},
-        {text: "Fat (g)", value: "fat"},
-        {text: "Carbs (g)", value: "carbs"},
-        {text: "Protein (g)", value: "protein"},
-        {text: "Iron (%)", value: "iron"},
-        {text: "Fat (g)", value: "fat"},
-        {text: "Carbs (g)", value: "carbs"}
-      ],
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          iron: "1%",
-          fat: 6.0,
-          carbs: 24
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          iron: "1%",
-          fat: 6.0,
-          carbs: 24
-        },
-        {
-          name: "Eclair",
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: "7%",
-          fat: 6.0,
-          carbs: 24
-        },
-        {
-          name: "Cupcake",
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          iron: "8%",
-          fat: 6.0,
-          carbs: 24
-        }
-      ],
+      purchaseList: [],
+      invoiceList: [],
+
       piedata: [404, 550, 1300],
       chartOptions: {
         chart: {
@@ -272,39 +219,101 @@ export default {
       recent_products: "",
       dashboardinfo: {},
       reportfor: "yearly",
-      paymentheaders: [
-        {
-          sortable: false,
-          text: this.$t("payment_type"),
-          value: "select_mode"
-        },
-        {
-          sortable: false,
-          text: this.$t("payment_via"),
-          value: "bank_name"
-        },
-        {
-          sortable: false,
-          text: this.$t("amount"),
-          value: "payment_amount",
-          align: "right"
-        },
-        {
-          sortable: false,
-          text: this.$t("date"),
-          value: "created_at",
-          align: "right"
-        }
-      ]
     };
   },
   mounted() {
     //this.$store.commit("title/SET_TITLE", this.$t("dashboard"));
     this.getDashboardData();
+    this.getPurchaseList();
+    this.getInvoiceList();
   },
   computed: {
     user_business_location() {
       return this.$auth.user.data.user_business_location;
+    },
+    purchaseHeaders() {
+      return [
+        {
+          sortable: false,
+          text: this.$t("purchase_no"),
+          value: "purchase_number"
+        },
+        {
+          sortable: false,
+          text: this.$t("date"),
+          value: "purchase_date"
+        },
+        {
+          sortable: false,
+          text: this.$t("supplier"),
+          value: "supplier_name"
+        },
+        {
+          sortable: false,
+          text: this.$t("purchase_status"),
+          value: "purchase_status"
+        },
+
+        {
+          sortable: false,
+          text: this.$t("total_amount"),
+          value: "total_cost"
+        },
+        {
+          sortable: false,
+          text: this.$t("paid_amount"),
+          value: "paid_price"
+        },
+        {
+          sortable: false,
+          text: this.$t("due_amount"),
+          value: "due_amount"
+        },
+        {
+          sortable: false,
+          text: this.$t("payment_status"),
+          value: "payment_status"
+        },
+      ];
+    },
+    invoiceHeaders() {
+      return [
+        {
+          sortable: false,
+          text: this.$t("invoice_no"),
+          value: "invoice_number"
+        },
+        {
+          sortable: false,
+          text: this.$t("client_name"),
+          value: "client_name"
+        },
+        {
+          sortable: false,
+          text: this.$t("date"),
+          value: "date"
+        },
+        {
+          sortable: false,
+          text: this.$t("total_amount"),
+          value: "total_amount"
+        },
+        {
+          sortable: false,
+          text: this.$t("paid_amount"),
+          value: "paid_price"
+        },
+        {
+          sortable: false,
+          text: this.$t("due_amount"),
+          value: "due_amount"
+        },
+        {
+          sortable: false,
+          text: this.$t("payment_status"),
+          value: "payment_status"
+        },
+      ];
     },
     lineOptions() {
       return {
@@ -346,9 +355,21 @@ export default {
         .reduce((prev, curr) => prev + curr, 0);
       return ((amount / sum) * 100).toFixed(2) + "%";
     },
+    async getPurchaseList() {
+      this.isLoading = true;
+      await this.$axios.get('/get-purchase-list').then(response => {
+        this.isLoading = false;
+        this.purchaseList = response.data;
+      });
+    },
+    async getInvoiceList() {
+      this.isLoading = true;
+      await this.$axios.get('/get-invoice-list').then(response => {
+        this.isLoading = false;
+        this.invoiceList = response.data;
+      });
+    },
     getDashboardData() {
-
-
       this.$axios.get("/top-card-data").then(res => {
         this.number_of_products = res.data.number_of_product;
         this.number_of_orders = res.data.number_of_invoice;

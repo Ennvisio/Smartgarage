@@ -121,3 +121,5 @@ Route::get('purchase-items', [PurchaseController::class, 'purchaseItemsList']);
 Route::resource('invoice', \App\Http\Controllers\InvoiceController::class);
 Route::get('get-brands', [BrandController::class, 'getBrands']);
 Route::get('top-card-data', [\App\Http\Controllers\DashboardController::class, 'get_top_card_data']);
+Route::get('/get-purchase-list', [\App\Http\Controllers\DashboardController::class, 'getPurchaseLists']);
+Route::get('/get-invoice-list', [\App\Http\Controllers\DashboardController::class, 'getInvoiceLists']);

@@ -65,6 +65,7 @@
                 <v-col cols="12" md="4" sm="12" xl="4">
                   <span>{{ $t("tax") }}:(%)</span>
                   <v-text-field
+                    type="number"
                     outlined
                     dense
                     required
@@ -77,13 +78,13 @@
                   <span>{{ $t("discount") }}</span>
                   <v-text-field
                     outlined
+                    type="number"
                     dense
                     required
                     v-model="form.purchase_discount"
                     @keyup="addDiscount($event.target.value)"
                   ></v-text-field>
                 </v-col>
-
                 <v-col cols="12" md="4" sm="12" xl="4">
                   <span>{{ $t("description") }}</span>
                   <v-textarea
@@ -103,6 +104,7 @@
                   <v-col cols="12" md="4" sm="12" xl="4">
                     <span>{{ $t("paid_amount") }}</span>
                     <v-text-field
+                      type="number"
                       outlined
                       dense
                       required
@@ -269,8 +271,12 @@ export default {
       return Math.round(subTotalAfterTax);
     },
     subTotalAfterDiscount() {
-      let subTotalAfterDiscount = this.$store.getters["product/subTotalAfterDiscount"];
-      return Math.round(subTotalAfterDiscount);
+      if (this.form.purchase_discount != "") {
+        let subTotalAfterDiscount = this.$store.getters["product/subTotalAfterDiscount"];
+        return Math.round(subTotalAfterDiscount);
+      } else {
+        return 0;
+      }
     },
     purchaseItems() {
       let products = this.$store.getters["product/getPurchaseItems"];
@@ -333,7 +339,7 @@ export default {
             .then(response => {
               this.isLoading = false;
               let data = {alert: true, message: this.$t("update_successful")};
-              this.form = "";
+              this.$refs.form.reset();
               this.$store.commit("SET_ALERT", data);
               this.$store.commit("SET_MODAL", true);
               this.$router.push({name: "purchase-list"});
@@ -348,7 +354,7 @@ export default {
             .then(response => {
               this.isLoading = false;
               let data = {alert: true, message: this.$t("successful"), type: 'success'};
-              this.form = "";
+              this.$refs.form.reset();
               this.$store.commit("SET_ALERT", data);
               this.$store.commit("SET_MODAL", true);
               this.$router.push({name: "purchase-list"});

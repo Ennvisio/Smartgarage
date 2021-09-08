@@ -29,7 +29,7 @@ export default {
   mounted() {
     this.getCustomers();
     this.getCategories();
-    // this.$store.commit("product/INIT_CART_ITEMS");
+    this.$store.commit("product/INIT_INVOICE_ITEMS");
   },
   watch: {},
   methods: {

@@ -22,6 +22,7 @@ export default {
   async asyncData({ params, axios }) {},
   mounted() {
     this.getSuppliers();
+    this.$store.commit("product/INIT_CART_ITEMS");
   },
   watch: {},
   methods: {

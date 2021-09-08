@@ -87,7 +87,7 @@ export default {
     message: "",
     error: null,
     form:{
-      contact_id:""
+      contact_id:"",
     },
     items: [],
     suppliers: []
@@ -153,6 +153,7 @@ export default {
     async submitForm() {
       this.error = null;
       await this.$axios.post("/report/search/total-purchase", this.form).then((res) => {
+      // await this.$axios.post("/report/search/total-purchase", this.queryString).then((res) => {
         this.items = res.data.data;
         this.$emit("refresh");
       });
