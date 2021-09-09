@@ -16,8 +16,10 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'surname' =>  ucfirst($this->surname),
             'first_name' => ucfirst($this->first_name),
             'last_name' => ucfirst($this->last_name),
+            'name'=>  ucfirst($this->first_name)." ".ucfirst($this->last_name),
             'username' => $this->username,
             'email' => $this->email,
             'language' => $this->language,

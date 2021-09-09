@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 11:54 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Sep 09, 2021 at 06:33 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,13 +44,17 @@ CREATE TABLE `brands` (
 INSERT INTO `brands` (`id`, `owner_id`, `name`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 3, 'brand_1', 'description_1', NULL, '2021-04-19 04:34:52', NULL),
 (2, 3, 'brand_2', 'description_2', NULL, '2021-04-19 04:34:52', NULL),
-(5, 3, 'brand_3', 'heelo_updated', '2021-04-18 22:40:20', '2021-04-18 22:39:59', '2021-04-18 22:40:20'),
+(5, 3, 'brand_3', 'heelo_updated', NULL, '2021-04-18 22:39:59', '2021-04-18 22:40:20'),
 (6, 3, 'brand_3_updated', 'description_3_updated', NULL, '2021-04-18 22:40:32', '2021-04-27 06:36:45'),
-(7, 1, 'brand_1', 'description', '2021-04-27 06:36:28', '2021-04-27 06:33:02', '2021-04-27 06:36:28'),
+(7, 1, 'brand_1', 'description', NULL, '2021-04-27 06:33:02', '2021-04-27 06:36:28'),
 (8, 1, 'brand_5', 'asdsad', NULL, '2021-04-28 03:29:11', '2021-04-28 03:29:11'),
 (9, 1, 'brand_4', 'test_description', NULL, '2021-04-28 03:29:55', '2021-05-09 02:15:08'),
 (10, 1, 'brand_6_updated', 'brand_6  description', NULL, '2021-05-20 00:21:40', '2021-05-20 00:21:55'),
-(11, 1, 'asdsaddsa', NULL, '2021-05-20 00:22:04', '2021-05-20 00:22:00', '2021-05-20 00:22:04');
+(11, 1, 'asdsaddsa', NULL, '2021-09-02 00:03:46', '2021-05-20 00:22:00', '2021-09-02 00:03:46'),
+(12, 1, 'brand_7', 'brand_7 description_updated', NULL, '2021-05-30 00:44:13', '2021-05-30 00:44:23'),
+(13, 1, 'hello', 'world', NULL, '2021-08-29 05:02:16', '2021-08-29 05:02:16'),
+(14, 1, 'azmaeen', 'dsad', '2021-09-02 00:03:28', '2021-09-02 00:02:30', '2021-09-02 00:03:28'),
+(15, 1, 'hgj', 'ghjj', '2021-09-02 00:03:38', '2021-09-02 00:03:34', '2021-09-02 00:03:38');
 
 -- --------------------------------------------------------
 
@@ -80,7 +84,10 @@ INSERT INTO `categories` (`id`, `name`, `owner_id`, `short_code`, `parent_id`, `
 (5, 'sub_cat_2', 3, 'sub-20', NULL, '2021-04-18 05:07:26', '2021-04-18 05:06:48', '2021-04-18 05:07:26'),
 (6, 'asdsad', 1, 'sad', 0, '2021-04-27 06:37:25', '2021-04-21 03:12:28', '2021-04-27 06:37:25'),
 (7, 'test_updated', 1, 'N/A', 4, '2021-05-20 00:17:14', '2021-04-27 06:37:12', '2021-05-20 00:17:14'),
-(8, 'sdsadsad', 1, NULL, 0, '2021-05-20 00:17:17', '2021-04-28 03:26:50', '2021-05-20 00:17:17');
+(8, 'sdsadsad', 1, NULL, 0, '2021-05-20 00:17:17', '2021-04-28 03:26:50', '2021-05-20 00:17:17'),
+(9, 'hello_world', 1, '376', 1, '2021-05-30 00:43:58', '2021-05-30 00:43:34', '2021-05-30 00:43:58'),
+(10, 'fdggd', 1, 'bcvbcv', 1, '2021-09-01 23:53:46', '2021-09-01 23:52:57', '2021-09-01 23:53:46'),
+(11, 'bmbn_uy', 1, 'nbbmbbm', 0, '2021-09-01 23:56:19', '2021-09-01 23:56:05', '2021-09-01 23:56:19');
 
 -- --------------------------------------------------------
 
@@ -103,7 +110,9 @@ CREATE TABLE `colors` (
 --
 
 INSERT INTO `colors` (`id`, `owner_id`, `name`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'red', NULL, NULL, '2021-04-28 01:04:52', '2021-04-28 01:04:52');
+(1, 1, 'red', 'red_updated', NULL, '2021-04-28 01:04:52', '2021-08-29 05:51:15'),
+(2, 1, 'blue', 'blue_updated', NULL, '2021-05-21 00:43:20', '2021-08-29 05:51:07'),
+(4, 1, 'black_updated', 'black', NULL, '2021-08-29 06:02:25', '2021-09-01 04:47:40');
 
 -- --------------------------------------------------------
 
@@ -133,49 +142,16 @@ INSERT INTO `contacts` (`id`, `owner_id`, `type`, `name`, `email`, `mobile`, `ad
 (1, 1, 'supplier', 'supplier_1', 'supplier_1@gmail.com', '01683135864', 'Dhaka', 1, NULL, '2021-05-20 00:29:12', '2021-05-20 00:29:12'),
 (2, 1, 'supplier', 'supplier_2', 'supplier_2@gmail.com', '01683135647', 'dhaka', 1, NULL, '2021-05-20 00:29:38', '2021-05-20 00:29:38'),
 (3, 1, 'supplier', 'supplier_3', 'supplier_3@gmail.com', '01683135425', 'dhaka', 1, NULL, '2021-05-20 00:30:04', '2021-05-20 00:30:04'),
-(4, 1, 'supplier', 'vxcv', 'sadsd@test.com', '016844578', 'dhaka', 1, NULL, '2021-05-20 00:31:49', '2021-05-20 00:31:58'),
+(4, 1, 'supplier', 'vxcv', 'sadsd@test.com', '016844578', 'dhaka', 1, '2021-08-29 05:02:50', '2021-05-20 00:31:49', '2021-08-29 05:02:50'),
 (5, 1, 'customer', 'client_1', 'client_1@gmail.com', '01683135647', 'dhaka', 1, NULL, '2021-05-20 00:55:59', '2021-05-20 00:55:59'),
 (6, 1, 'customer', 'client_2', 'client_2@gmail.com', '01683135647', 'dhaka', 1, NULL, '2021-05-20 00:56:20', '2021-05-20 00:56:20'),
 (7, 1, 'customer', 'client_3', 'client_3@gmail.com', '0168564789', 'dhaka', 1, NULL, '2021-05-20 00:56:42', '2021-05-20 00:56:42'),
-(8, 1, 'customer', 'test', 'sadsad@test.com', '016845987456', 'dhaka', 1, NULL, '2021-05-20 00:57:16', '2021-05-20 00:57:27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `expenses`
---
-
-CREATE TABLE `expenses` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `owner_id` bigint(20) UNSIGNED NOT NULL,
-  `expense_for` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_monthly_expense` int(11) DEFAULT 0,
-  `amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ref_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `exp_date` date DEFAULT NULL,
-  `exp_cat_id` int(10) UNSIGNED DEFAULT NULL,
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_by` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `expense_categories`
---
-
-CREATE TABLE `expense_categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner_id` bigint(20) UNSIGNED NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(8, 1, 'customer', 'test', 'sadsad@test.com', '016845987456', 'dhaka', 1, NULL, '2021-05-20 00:57:16', '2021-05-20 00:57:27'),
+(9, 1, 'customer', 'customer_7', 'customer_7@test.com', '01683135265', 'dhaka', 1, NULL, '2021-06-01 06:37:44', '2021-06-01 06:37:44'),
+(10, 1, 'supplier', 'maheeb_updated', 'maheeb@test.com', '46466', 'hello', 1, NULL, '2021-08-29 05:02:38', '2021-08-29 05:02:46'),
+(11, 1, 'customer', 'azmaeen', 'azmaeen@test.com', '09345252', 'house 5, road 12, block C banasree', 1, NULL, '2021-08-29 05:03:25', '2021-08-29 05:03:25'),
+(12, 1, 'supplier', 'jhkkj', 'jkh', 'jk', 'kjh', 1, '2021-09-02 00:22:55', '2021-09-02 00:22:50', '2021-09-02 00:22:55'),
+(13, 1, 'customer', 'bmm', 'bnmn@test.com', '016831325647', 'jklkjl', 1, '2021-09-02 00:27:08', '2021-09-02 00:26:54', '2021-09-02 00:27:08');
 
 -- --------------------------------------------------------
 
@@ -227,11 +203,18 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `owner_id`, `invoice_number`, `date`, `contact_id`, `client_name`, `client_phone`, `total_cost`, `paid_price`, `due_price`, `payment_status`, `created_by`, `discount`, `vat`, `vat_parcentage`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, 1, 1621359561, '2021-05-18', 5, NULL, NULL, 376, 376, 0, 'Paid', '1', 20, 50, NULL, NULL, '2021-05-18 11:24:05', '2021-05-18 11:24:05', NULL),
-(5, 1, 1621359581, '2021-05-18', 5, NULL, NULL, 105, 105, 0, 'Paid', '1', 3, 20, NULL, NULL, '2021-05-18 11:25:40', '2021-05-18 11:25:40', NULL),
-(6, 1, 1621360914, '2021-05-18', 5, NULL, NULL, 378, 377, 1, 'Due', '1', 50, 50, NULL, NULL, '2021-05-18 11:55:03', '2021-05-18 11:55:03', NULL),
-(7, 1, 1621496496, '2021-05-20', 5, NULL, NULL, 86, 86, 0, 'Paid', '1', 2, 10, NULL, NULL, '2021-05-20 01:31:50', '2021-05-20 01:31:50', NULL),
-(8, 1, 1621500932, '2021-05-20', 5, NULL, NULL, 24, 24, 0, 'Paid', '1', 2, 30, NULL, NULL, '2021-05-20 02:51:50', '2021-05-20 02:52:10', '2021-05-20 02:52:10');
+(41, 1, 1630906619, '2021-09-06', 5, NULL, NULL, 160, 100, 60, 'Paid', '1', 5, 10, NULL, NULL, '2021-09-05 23:24:44', '2021-09-05 23:26:49', NULL),
+(42, 1, 1630906386, '2021-08-31', 7, NULL, NULL, 80, 39, 9, 'Paid', '1', 40, 20, NULL, NULL, '2021-09-05 23:32:05', '2021-09-08 01:21:30', NULL),
+(43, 1, 1630906771, '2021-08-23', 7, NULL, NULL, 100, 61, NULL, 'Paid', '1', 44, 20, NULL, NULL, '2021-09-05 23:38:52', '2021-09-08 01:20:36', NULL),
+(44, 1, 1630909489, '2021-09-06', 11, NULL, NULL, 215, 215, NULL, NULL, '1', 5, 10, NULL, NULL, '2021-09-06 00:11:50', '2021-09-06 00:22:14', '2021-09-06 00:22:14'),
+(45, 1, 1630909049, '1970-01-01', 5, NULL, NULL, 139, 139, NULL, NULL, '1', 10, 5, NULL, NULL, '2021-09-06 00:14:27', '2021-09-06 00:22:10', '2021-09-06 00:22:10'),
+(46, 1, 1630909799, '2021-08-24', 5, NULL, NULL, 90, 90, NULL, 'Paid', '1', 20, 10, NULL, NULL, '2021-09-06 00:23:02', '2021-09-06 01:58:12', NULL),
+(47, 1, 1631085248, '1970-01-01', 5, NULL, NULL, 60, 60, NULL, NULL, '1', 3, 5, NULL, NULL, '2021-09-08 00:58:17', '2021-09-08 00:58:17', NULL),
+(48, 1, 1631085394, '2021-09-08', 5, NULL, NULL, 28, 28, NULL, NULL, '1', 5, 10, NULL, NULL, '2021-09-08 01:01:07', '2021-09-08 01:01:07', NULL),
+(49, 1, 1631085618, '1970-01-01', 7, NULL, NULL, 173, 1000, NULL, NULL, '1', 25, 10, NULL, NULL, '2021-09-08 01:15:34', '2021-09-08 01:18:37', '2021-09-08 01:18:37'),
+(50, 1, 1631090002, '2021-09-08', 5, NULL, NULL, 4, 4, NULL, NULL, '1', 10, 20, NULL, NULL, '2021-09-08 02:17:38', '2021-09-08 02:17:38', NULL),
+(51, 1, 1631090049, '2021-09-07', 5, NULL, NULL, 8, 0, NULL, 'Paid', '1', 5, 10, NULL, NULL, '2021-09-08 02:19:11', '2021-09-08 02:23:07', NULL),
+(52, 1, 1631089505, '2021-09-08', 5, NULL, NULL, 61, 61, NULL, NULL, '1', 5, 10, NULL, NULL, '2021-09-08 02:22:16', '2021-09-08 02:22:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -262,13 +245,23 @@ CREATE TABLE `invoice_items` (
 --
 
 INSERT INTO `invoice_items` (`id`, `invoice_id`, `vehicle_id`, `product_id`, `product_quantity`, `product_rate`, `product_total_price`, `service_id`, `service_quantity`, `service_total_price`, `service_rate`, `total_price`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(5, 4, 1, 5, 6, 30, NULL, NULL, NULL, NULL, NULL, 180, '2021-05-18 11:24:05', '2021-05-18 11:24:05', NULL),
-(6, 4, 1, 6, 7, 12, NULL, NULL, NULL, NULL, NULL, 84, '2021-05-18 11:24:05', '2021-05-18 11:24:05', NULL),
-(7, 5, 1, NULL, NULL, NULL, NULL, 1, 9, NULL, 10, 90, '2021-05-18 11:25:40', '2021-05-18 11:25:40', NULL),
-(8, 6, 1, 5, 6, 30, NULL, NULL, NULL, NULL, NULL, 180, '2021-05-18 11:55:03', '2021-05-18 11:55:03', NULL),
-(9, 6, 1, NULL, NULL, NULL, NULL, 2, 7, NULL, 15, 105, '2021-05-18 11:55:03', '2021-05-18 11:55:03', NULL),
-(10, 7, 2, NULL, NULL, NULL, NULL, 3, 4, NULL, 20, 80, '2021-05-20 01:31:50', '2021-05-20 01:31:50', NULL),
-(11, 8, 2, NULL, NULL, NULL, NULL, 3, 1, NULL, 20, 20, '2021-05-20 02:51:50', '2021-05-20 02:51:50', NULL);
+(72, 41, 1, 5, 5, 30, NULL, NULL, NULL, NULL, NULL, 150, '2021-09-05 23:24:44', '2021-09-05 23:24:44', NULL),
+(73, 42, 5, 7, 2, 20, NULL, NULL, NULL, NULL, NULL, 40, '2021-09-05 23:32:05', '2021-09-05 23:32:05', NULL),
+(74, 43, 3, 17, 3, 20, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-05 23:38:52', '2021-09-05 23:38:52', NULL),
+(75, 44, 4, NULL, NULL, NULL, NULL, 4, 1, NULL, 200, 200, '2021-09-06 00:11:50', '2021-09-06 00:11:50', NULL),
+(76, 45, 1, 5, 1, 30, NULL, NULL, NULL, NULL, NULL, 30, '2021-09-06 00:14:27', '2021-09-06 00:14:27', NULL),
+(77, 45, 1, 6, 1, 12, NULL, NULL, NULL, NULL, NULL, 12, '2021-09-06 00:14:27', '2021-09-06 00:14:27', NULL),
+(78, 45, 1, 17, 5, 20, NULL, NULL, NULL, NULL, NULL, 100, '2021-09-06 00:14:27', '2021-09-06 00:14:27', NULL),
+(79, 46, 1, 5, 2, 30, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-06 00:23:02', '2021-09-06 00:23:02', NULL),
+(80, 46, 1, 17, 2, 20, NULL, NULL, NULL, NULL, NULL, 40, '2021-09-06 00:23:28', '2021-09-06 00:23:28', NULL),
+(81, 47, 1, 5, 2, 30, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-08 00:58:17', '2021-09-08 00:58:17', NULL),
+(82, 48, 1, 5, 1, 30, NULL, NULL, NULL, NULL, NULL, 30, '2021-09-08 01:01:07', '2021-09-08 01:01:07', NULL),
+(83, 49, 3, 5, 6, 30, NULL, NULL, NULL, NULL, NULL, 180, '2021-09-08 01:15:34', '2021-09-08 01:17:58', NULL),
+(84, 43, 3, 7, 3, 20, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-08 01:20:36', '2021-09-08 01:20:36', NULL),
+(85, 42, 5, 17, 3, 20, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-08 01:21:30', '2021-09-08 01:21:30', NULL),
+(86, 50, 1, 6, 1, 12, NULL, NULL, NULL, NULL, NULL, 12, '2021-09-08 02:17:38', '2021-09-08 02:17:38', NULL),
+(87, 51, 1, 6, 1, 12, NULL, NULL, NULL, NULL, NULL, 12, '2021-09-08 02:19:11', '2021-09-08 02:19:11', NULL),
+(88, 52, 1, 7, 3, 20, NULL, NULL, NULL, NULL, NULL, 60, '2021-09-08 02:22:16', '2021-09-08 02:22:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -327,7 +320,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2017_08_08_115903_create_products_table', 4),
 (35, '2021_04_11_115014_create_invoices_table', 5),
 (36, '2021_04_11_115226_create_invoice_items_table', 5),
-(37, '2017_07_27_075706_create_contacts_table', 6);
+(37, '2017_07_27_075706_create_contacts_table', 6),
+(39, '2021_08_31_082907_add_paid_amount_due_amount_column_to_purchase_table', 7),
+(40, '2021_09_05_082809_create_payments_table', 8),
+(41, '2021_09_05_111910_add_card_no_bank_name_column_to_payments_table', 9);
 
 -- --------------------------------------------------------
 
@@ -360,6 +356,74 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `paymentable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `paymentable_id` bigint(20) UNSIGNED NOT NULL,
+  `payment_amount` decimal(20,2) NOT NULL,
+  `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `card_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bank_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_date` date DEFAULT NULL,
+  `payment_details` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `paymentable_type`, `paymentable_id`, `payment_amount`, `payment_method`, `card_no`, `bank_name`, `account_no`, `payment_date`, `payment_details`, `created_at`, `updated_at`) VALUES
+(2, 'App\\Models\\Purchase', 31, '100.00', 'Cash', NULL, NULL, NULL, '2021-09-05', 'jhkkjk', '2021-09-05 04:51:00', '2021-09-05 04:51:00'),
+(3, 'App\\Models\\Purchase', 32, '80.00', 'Cash', NULL, NULL, NULL, '2021-09-05', 'gjhgj', '2021-09-05 05:22:00', '2021-09-05 05:22:00'),
+(4, 'App\\Models\\Purchase', 32, '14.00', 'Cash', NULL, NULL, NULL, '2021-09-05', NULL, '2021-09-05 05:28:00', '2021-09-05 05:28:00'),
+(5, 'App\\Models\\Invoice', 41, '100.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:24:00', '2021-09-05 23:24:00'),
+(6, 'App\\Models\\Invoice', 41, '60.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:26:00', '2021-09-05 23:26:00'),
+(7, 'App\\Models\\Invoice', 42, '30.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:32:00', '2021-09-05 23:32:00'),
+(8, 'App\\Models\\Invoice', 42, '9.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:32:00', '2021-09-05 23:32:00'),
+(9, 'App\\Models\\Purchase', 33, '10.00', 'Cash', NULL, NULL, NULL, '2021-09-06', '10', '2021-09-05 23:35:00', '2021-09-05 23:35:00'),
+(10, 'App\\Models\\Purchase', 33, '73.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:36:00', '2021-09-05 23:36:00'),
+(11, 'App\\Models\\Invoice', 43, '50.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:38:00', '2021-09-05 23:38:00'),
+(12, 'App\\Models\\Invoice', 43, '16.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:39:00', '2021-09-05 23:39:00'),
+(13, 'App\\Models\\Purchase', 34, '30.00', 'Cash', NULL, NULL, NULL, '2021-09-06', '4546545', '2021-09-05 23:45:00', '2021-09-05 23:45:00'),
+(14, 'App\\Models\\Purchase', 34, '8.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-05 23:45:00', '2021-09-05 23:45:00'),
+(15, 'App\\Models\\Invoice', 44, '215.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:11:00', '2021-09-06 00:11:00'),
+(16, 'App\\Models\\Invoice', 45, '139.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:14:00', '2021-09-06 00:14:00'),
+(17, 'App\\Models\\Purchase', 34, '122.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:16:00', '2021-09-06 00:16:00'),
+(18, 'App\\Models\\Purchase', 35, '50.00', 'Cash', NULL, NULL, NULL, '2021-09-06', 'gfhhf', '2021-09-06 00:17:00', '2021-09-06 00:17:00'),
+(19, 'App\\Models\\Purchase', 35, '80.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:18:00', '2021-09-06 00:18:00'),
+(20, 'App\\Models\\Invoice', 46, '40.00', NULL, NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:23:00', '2021-09-06 00:23:00'),
+(21, 'App\\Models\\Invoice', 46, '50.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 00:23:00', '2021-09-06 00:23:00'),
+(22, 'App\\Models\\Purchase', 36, '38.00', 'Cash', NULL, NULL, NULL, '2021-09-06', 'hjgjhgjh', '2021-09-06 01:02:00', '2021-09-06 01:02:00'),
+(23, 'App\\Models\\Purchase', 37, '11.00', 'Cash', NULL, NULL, NULL, '2021-09-06', 'jhjj', '2021-09-06 01:13:00', '2021-09-06 01:13:00'),
+(24, 'App\\Models\\Invoice', 43, '-5.00', 'Cash', NULL, NULL, NULL, '2021-09-06', NULL, '2021-09-06 01:56:00', '2021-09-06 01:56:00'),
+(25, 'App\\Models\\Purchase', 38, '292.00', 'Cash', NULL, NULL, NULL, '2021-09-08', 'paid', '2021-09-08 00:18:00', '2021-09-08 00:18:00'),
+(26, 'App\\Models\\Purchase', 39, '52.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 00:53:00', '2021-09-08 00:53:00'),
+(27, 'App\\Models\\Invoice', 47, '60.00', NULL, NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 00:58:00', '2021-09-08 00:58:00'),
+(28, 'App\\Models\\Invoice', 48, '28.00', NULL, NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:01:00', '2021-09-08 01:01:00'),
+(29, 'App\\Models\\Purchase', 40, '145.00', 'Cash', NULL, NULL, NULL, '2021-09-08', 'ggh', '2021-09-08 01:02:00', '2021-09-08 01:02:00'),
+(30, 'App\\Models\\Purchase', 41, '94.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:07:00', '2021-09-08 01:07:00'),
+(31, 'App\\Models\\Purchase', 42, '42.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:12:00', '2021-09-08 01:12:00'),
+(32, 'App\\Models\\Purchase', 43, '230.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:13:00', '2021-09-08 01:13:00'),
+(33, 'App\\Models\\Purchase', 43, '6.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:13:00', '2021-09-08 01:13:00'),
+(34, 'App\\Models\\Invoice', 49, '1000.00', NULL, NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:15:00', '2021-09-08 01:15:00'),
+(35, 'App\\Models\\Invoice', 43, '39.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:20:00', '2021-09-08 01:20:00'),
+(36, 'App\\Models\\Invoice', 42, '41.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 01:21:00', '2021-09-08 01:21:00'),
+(37, 'App\\Models\\Purchase', 44, '116.00', 'Cash', NULL, NULL, NULL, '2021-09-08', 'gdfgd', '2021-09-08 02:06:00', '2021-09-08 02:06:00'),
+(38, 'App\\Models\\Invoice', 50, '4.00', NULL, NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 02:17:00', '2021-09-08 02:17:00'),
+(39, 'App\\Models\\Invoice', 52, '61.00', NULL, NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 02:22:00', '2021-09-08 02:22:00'),
+(40, 'App\\Models\\Invoice', 51, '8.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 02:23:00', '2021-09-08 02:23:00'),
+(41, 'App\\Models\\Purchase', 45, '20.00', 'Cash', NULL, NULL, NULL, '2021-09-08', 'vbv', '2021-09-08 04:16:00', '2021-09-08 04:16:00'),
+(42, 'App\\Models\\Purchase', 45, '230.00', 'Cash', NULL, NULL, NULL, '2021-09-08', NULL, '2021-09-08 04:20:00', '2021-09-08 04:20:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -386,19 +450,23 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `owner_id`, `name`, `category_id`, `brand_id`, `buying_price`, `selling_price`, `image`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'test_9', 1, 8, 12, 15, 'images/products/1620293349.png', 20, '1', 1, 1, '2021-04-28 04:05:59', '2021-05-06 04:12:08', NULL),
-(2, 1, 'BMW', 1, 9, 25, 55, 'images/products/1620495596.jpg', 35, '1', 1, 1, '2021-04-28 04:10:06', '2021-05-20 00:21:09', NULL),
+(1, 1, 'test_9', 1, 8, 12, 15, 'images/products/1620293349.png', 6, '1', 1, 1, '2021-04-28 04:05:59', '2021-08-29 05:01:58', '2021-08-29 05:01:58'),
+(2, 1, 'BMW', 1, 9, 25, 55, 'images/products/1620495596.jpg', 35, '1', 1, 1, '2021-04-28 04:10:06', '2021-05-30 00:42:24', '2021-05-30 00:42:24'),
 (3, 1, 'Azmaeen', 1, 9, 10, 20, NULL, 12, 'Active', 1, 1, '2021-04-28 04:12:06', '2021-05-06 03:41:42', '2021-05-06 03:41:42'),
-(4, 1, 'maheeb', 1, 8, 100, 200, 'images/products/1619605091.png', 50, '0', 1, 1, '2021-04-28 04:18:11', '2021-05-20 00:20:45', NULL),
-(5, 1, 'product_1', 1, 9, 20, 30, 'images/products/1620495549.jpg', 7, '0', 1, 1, '2021-04-28 04:19:10', '2021-05-18 11:55:03', NULL),
-(6, 1, 'product_2', 1, 9, 10, 12, NULL, 22, '0', 1, 1, '2021-04-28 04:19:10', '2021-05-18 11:24:05', NULL),
-(7, 1, 'product_3', 1, 9, 14, 20, NULL, 24, '0', 1, 1, '2021-04-28 04:19:10', '2021-05-10 22:52:33', NULL),
-(8, 1, 'product_4', 8, 8, 30, 64, 'images/products/1620495506.png', 42, '1', 1, 1, '2021-05-06 00:46:12', '2021-05-10 22:54:04', NULL),
+(4, 1, 'maheeb', 1, 8, 100, 200, 'images/products/1619605091.png', 50, '0', 1, 1, '2021-04-28 04:18:11', '2021-08-29 05:05:18', '2021-08-29 05:05:18'),
+(5, 1, 'product_1', 1, 9, 20, 30, 'images/products/1620495549.jpg', 107, '0', 1, 1, '2021-04-28 04:19:10', '2021-09-08 04:20:31', NULL),
+(6, 1, 'product_2', 1, 9, 10, 12, 'images/products/1630558909.jpg', 79, '0', 1, 1, '2021-04-28 04:19:10', '2021-09-08 02:23:00', NULL),
+(7, 1, 'product_3', 1, 9, 14, 20, 'images/products/1622356980.jpg', 86, '0', 1, 1, '2021-04-28 04:19:10', '2021-09-08 04:20:31', NULL),
+(8, 1, 'product_4', 1, 8, 30, 64, 'images/products/1620495506.png', 97, '1', 1, 1, '2021-05-06 00:46:12', '2021-06-13 01:41:29', NULL),
 (9, 1, 'asdsad', 1, 8, 12, 20, NULL, 5, '1', 1, 1, '2021-05-06 04:12:50', '2021-05-06 04:13:24', '2021-05-06 04:13:24'),
 (10, 1, 'heelo', 1, 8, 25, 55, NULL, 20, '1', 1, NULL, '2021-05-08 11:24:16', '2021-05-08 11:24:21', '2021-05-08 11:24:21'),
 (11, 1, 'cristiano', 1, 8, 25, 35, 'images/products/1620495380.png', 35, '1', 1, 1, '2021-05-08 11:27:53', '2021-05-08 11:36:39', '2021-05-08 11:36:39'),
 (12, 1, 'test_25', 1, 9, 100, 200, 'images/products/1620495663.png', 20, '1', 1, 1, '2021-05-08 11:40:47', '2021-05-08 11:41:08', '2021-05-08 11:41:08'),
-(13, 1, 'nbmb', 2, 10, 20, 155, NULL, 10, '1', 1, NULL, '2021-05-20 02:12:24', '2021-05-20 02:12:34', '2021-05-20 02:12:34');
+(13, 1, 'nbmb', 2, 10, 20, 155, NULL, 10, '1', 1, NULL, '2021-05-20 02:12:24', '2021-05-20 02:12:34', '2021-05-20 02:12:34'),
+(14, 1, 'product_7_updated', 1, 8, 300, 450, 'images/products/1622354727.jpg', 120, '0', 1, 1, '2021-05-30 00:03:36', '2021-08-31 00:19:46', '2021-08-31 00:19:46'),
+(15, 1, 'hello_updated', 1, 12, 100, 400, 'images/products/1630234900.jpg', 5, '0', 1, 1, '2021-08-29 05:01:40', '2021-08-31 23:45:36', '2021-08-31 23:45:36'),
+(16, 1, 'product_10', 1, 12, 200, 400, 'images/products/1630559949.jpg', 100, '1', 1, NULL, '2021-09-01 23:19:09', '2021-09-01 23:19:09', NULL),
+(17, 1, 'product_15', 1, 13, 10, 20, 'images/products/1630560165.jpg', 195, '0', 1, 1, '2021-09-01 23:22:45', '2021-09-08 04:20:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -408,18 +476,19 @@ INSERT INTO `products` (`id`, `owner_id`, `name`, `category_id`, `brand_id`, `bu
 
 CREATE TABLE `purchases` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `purchase_number` int(11) DEFAULT NULL,
   `owner_id` bigint(20) UNSIGNED NOT NULL,
   `contact_id` bigint(20) UNSIGNED NOT NULL,
-  `purchase_status` enum('received','pending','ordered','draft','final') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `purchase_status` enum('Received','Pending','Ordered','Draft','Final') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `purchase_date` date DEFAULT NULL,
   `total_purchase_quantity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subtotal_cost` decimal(20,2) DEFAULT NULL,
   `purchase_discount` decimal(20,2) DEFAULT NULL,
   `purchase_tax` decimal(20,2) DEFAULT NULL,
   `total_cost` decimal(20,2) DEFAULT NULL,
-  `shipping_charge` decimal(20,2) DEFAULT NULL,
-  `shipping_details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_status` enum('paid','due','partial') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paid_amount` double DEFAULT NULL,
+  `due_amount` double DEFAULT NULL,
+  `payment_status` enum('Paid','Due','Partial') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` bigint(20) UNSIGNED NOT NULL,
   `updated_by` bigint(20) UNSIGNED NOT NULL,
@@ -427,6 +496,27 @@ CREATE TABLE `purchases` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `purchase_number`, `owner_id`, `contact_id`, `purchase_status`, `purchase_date`, `total_purchase_quantity`, `subtotal_cost`, `purchase_discount`, `purchase_tax`, `total_cost`, `paid_amount`, `due_amount`, `payment_status`, `note`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(31, 1630839469, 1, 1, 'Received', '2021-09-05', '4', '120.00', '20.00', '10.00', '112.00', NULL, NULL, 'Paid', NULL, 1, 1, '2021-09-05 04:51:38', '2021-09-05 05:21:40', '2021-09-05 05:21:40'),
+(32, 1630841702, 1, 1, 'Received', '2021-09-05', '3', '90.00', '5.00', '10.00', '94.00', NULL, NULL, 'Paid', NULL, 1, 1, '2021-09-05 05:22:15', '2021-09-05 05:28:16', NULL),
+(33, 1630907138, 1, 1, 'Received', '2021-09-06', '4', '80.00', '5.00', '10.00', '83.00', NULL, NULL, 'Paid', NULL, 1, 1, '2021-09-05 23:35:57', '2021-09-05 23:36:05', NULL),
+(34, 1630907824, 1, 1, 'Received', '2021-09-06', '12', '40.00', '20.00', '5.00', '160.00', 38, NULL, 'Paid', NULL, 1, 1, '2021-09-05 23:45:32', '2021-09-06 00:16:40', NULL),
+(35, 1630909912, 1, 1, 'Received', '2021-09-06', '5', '90.00', '4.00', '10.00', '130.00', NULL, NULL, 'Paid', NULL, 1, 1, '2021-09-06 00:17:35', '2021-09-06 00:18:23', NULL),
+(36, 1630911944, 1, 2, 'Received', '2021-08-17', '2', '40.00', '10.00', '20.00', '38.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-06 01:02:43', '2021-09-06 01:02:43', NULL),
+(37, 1630913321, 1, 1, 'Received', '2021-09-06', '1', '20.00', '10.00', '5.00', '11.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-06 01:13:15', '2021-09-06 01:13:15', NULL),
+(38, 1631081963, 1, 1, 'Received', '2021-09-08', '15', '270.00', '5.00', '10.00', '292.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 00:18:10', '2021-09-08 00:18:10', NULL),
+(39, 1631084888, 1, 1, 'Received', '2021-09-08', '4', '48.00', NULL, '10.00', '53.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 00:53:13', '2021-09-08 00:53:13', NULL),
+(40, 1631084885, 1, 1, 'Received', '2021-09-08', '5', '150.00', '20.00', '10.00', '145.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 01:02:28', '2021-09-08 01:02:28', NULL),
+(41, 1631085094, 1, 1, 'Received', '2021-09-08', '3', '90.00', '5.00', '10.00', '94.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 01:07:06', '2021-09-08 01:07:06', NULL),
+(42, 1631085479, 1, 1, 'Received', '2021-09-08', '2', '50.00', '10.00', '5.00', '43.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 01:12:22', '2021-09-08 01:12:22', NULL),
+(43, 1631085775, 1, 3, 'Received', '2021-09-08', '13', '200.00', '10.00', '20.00', '236.00', NULL, NULL, 'Paid', NULL, 1, 1, '2021-09-08 01:13:01', '2021-09-08 01:13:45', NULL),
+(44, 1631089193, 1, 1, 'Received', '2021-09-08', '4', '120.00', '10.00', '5.00', '116.00', NULL, NULL, NULL, NULL, 1, 1, '2021-09-08 02:06:56', '2021-09-08 02:06:56', NULL),
+(45, 1631096923, 1, 1, 'Received', '2021-09-08', '12', '30.00', '5.00', '10.00', '250.00', NULL, NULL, 'Paid', 'hello', 1, 1, '2021-09-08 04:16:55', '2021-09-08 04:20:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -445,21 +535,33 @@ CREATE TABLE `purchase_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `purchase_payments`
+-- Dumping data for table `purchase_items`
 --
 
-CREATE TABLE `purchase_payments` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `purchase_id` bigint(20) UNSIGNED NOT NULL,
-  `payment_amount` decimal(20,2) NOT NULL,
-  `payment_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_date` date DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `purchase_items` (`id`, `purchase_id`, `product_id`, `purchase_quantity`, `purchase_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(37, 31, 5, '4.00', '30.00', '120.00', '2021-09-05 04:51:38', '2021-09-05 04:51:38'),
+(38, 32, 5, '3.00', '30.00', '90.00', '2021-09-05 05:22:15', '2021-09-05 05:22:15'),
+(39, 33, 7, '4.00', '20.00', '80.00', '2021-09-05 23:35:57', '2021-09-05 23:35:57'),
+(40, 34, 7, '2.00', '20.00', '40.00', '2021-09-05 23:45:32', '2021-09-06 00:15:18'),
+(41, 34, 6, '10.00', '12.00', '120.00', '2021-09-06 00:15:18', '2021-09-06 00:15:18'),
+(42, 35, 5, '3.00', '30.00', '90.00', '2021-09-06 00:17:35', '2021-09-06 00:18:10'),
+(43, 35, 7, '2.00', '20.00', '40.00', '2021-09-06 00:18:10', '2021-09-06 00:18:10'),
+(44, 36, 17, '2.00', '20.00', '40.00', '2021-09-06 01:02:43', '2021-09-06 01:02:43'),
+(45, 37, 17, '1.00', '20.00', '20.00', '2021-09-06 01:13:15', '2021-09-06 01:13:15'),
+(46, 38, 5, '5.00', '30.00', '150.00', '2021-09-08 00:18:10', '2021-09-08 00:18:10'),
+(47, 38, 6, '10.00', '12.00', '120.00', '2021-09-08 00:18:10', '2021-09-08 00:18:10'),
+(48, 39, 6, '4.00', '12.00', '48.00', '2021-09-08 00:53:13', '2021-09-08 00:53:13'),
+(49, 40, 5, '5.00', '30.00', '150.00', '2021-09-08 01:02:28', '2021-09-08 01:02:28'),
+(50, 41, 5, '3.00', '30.00', '90.00', '2021-09-08 01:07:06', '2021-09-08 01:07:06'),
+(51, 42, 5, '1.00', '30.00', '30.00', '2021-09-08 01:12:22', '2021-09-08 01:12:22'),
+(52, 42, 17, '1.00', '20.00', '20.00', '2021-09-08 01:12:22', '2021-09-08 01:12:22'),
+(53, 43, 7, '10.00', '20.00', '200.00', '2021-09-08 01:13:01', '2021-09-08 01:13:36'),
+(54, 43, 6, '3.00', '12.00', '36.00', '2021-09-08 01:13:36', '2021-09-08 01:13:36'),
+(55, 44, 5, '4.00', '30.00', '120.00', '2021-09-08 02:06:56', '2021-09-08 02:06:56'),
+(56, 45, 5, '1.00', '30.00', '30.00', '2021-09-08 04:16:55', '2021-09-08 04:20:31'),
+(57, 45, 7, '1.00', '20.00', '20.00', '2021-09-08 04:19:35', '2021-09-08 04:20:31'),
+(58, 45, 17, '10.00', '20.00', '200.00', '2021-09-08 04:20:31', '2021-09-08 04:20:31');
 
 -- --------------------------------------------------------
 
@@ -530,9 +632,10 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `owner_id`, `name`, `category_id`, `selling_price`, `status`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'service_1', 2, 10, 'active', NULL, '2021-04-28 01:10:16', '2021-04-28 01:10:16'),
-(2, 1, 'service_2', 2, 15, 'active', NULL, '2021-04-28 01:10:16', '2021-04-28 01:10:16'),
-(3, 1, 'service_3', 2, 20, 'active', NULL, '2021-04-28 01:10:16', '2021-04-28 01:10:16');
+(1, 1, 'service_1', 2, 10, 'Active', NULL, '2021-04-28 01:10:16', '2021-04-28 01:10:16'),
+(3, 1, 'service_3_updated', 2, 300, 'Active', 'updated_again', '2021-04-28 01:10:16', '2021-08-31 00:34:27'),
+(4, 1, 'service_4', 2, 200, 'Active', 'asdasd', '2021-08-31 00:08:51', '2021-08-31 00:08:51'),
+(5, 1, 'service_5', 2, 5445, 'Active', 'ghfghf', '2021-08-31 00:15:49', '2021-08-31 00:15:49');
 
 -- --------------------------------------------------------
 
@@ -581,7 +684,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `surname`, `first_name`, `last_name`, `username`, `email`, `password`, `language`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'MR', 'Imtiaz', 'ahmed', 'admin', 'admin@gmail.com', '$2y$12$7EcNNiccb.Ua1WwoxhL22eZS5zdRNFGGmngTIwvAGCMiaYysL8BbO', 'en', NULL, NULL, NULL, NULL),
 (3, 'mr', 'maheeb', 'azmaeen', 'maheeb', 'maheeb@test.com', '$2y$10$327/P0iRh.L16rzv0sr80.5QxMOTz4OCDis1HFO3.3GsKl9vu0O1e', 'en', NULL, NULL, '2021-04-18 02:49:56', '2021-04-18 02:49:56'),
-(5, '', 'asd', 'sasad', 'maheeb@test.com', 'asd@test.com', '$2y$10$YZTvYu4TThSr0H9xX4J3V.iX9jNBxt/nbZxHDSIVvBLwQKeLDYDNO', 'en', NULL, NULL, '2021-04-19 04:56:29', '2021-04-19 04:56:29');
+(5, '', 'asd', 'sasad', 'maheeb@test.com', 'asd@test.com', '$2y$10$YZTvYu4TThSr0H9xX4J3V.iX9jNBxt/nbZxHDSIVvBLwQKeLDYDNO', 'en', NULL, NULL, '2021-04-19 04:56:29', '2021-04-19 04:56:29'),
+(6, '', 'maheeb', 'azmaeen', 'maheeb10', 'maheeb@test.com', '$2y$10$FlRSkUahLCtWC2PYaxftt.gxcOfQRr/qMvsy1Bw/F737cV7HgmfzK', 'en', NULL, NULL, '2021-09-08 05:29:53', '2021-09-08 05:29:53');
 
 -- --------------------------------------------------------
 
@@ -610,8 +714,10 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `owner_id`, `contact_id`, `brand_id`, `model`, `reg_no`, `chassis_no`, `mileage`, `color_id`, `type_id`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 5, 1, 'maheeb', '25', '26', '1', 1, 1, 'yuiy', '2021-04-28 01:07:58', '2021-04-28 01:07:58'),
-(2, 1, 5, 1, 'Azmaeen', '25', '26', '1', 1, 1, 'yuiy', '2021-04-28 01:07:58', '2021-04-28 01:07:58');
+(1, 1, 5, 12, 'maheeb', '25', '26', '1', 1, 1, 'yuiy', '2021-04-28 01:07:58', '2021-04-28 01:07:58'),
+(3, 1, 7, 8, 'model-56', 'reg-25', '5665', '5', 2, 1, 'sdasdd', '2021-06-13 01:55:08', '2021-06-13 01:55:08'),
+(4, 1, 11, 9, '4654', '87897', '7987', '121', 1, 1, '5465', '2021-08-29 05:03:53', '2021-08-29 05:57:19'),
+(5, 1, 7, 13, '120_upated', '520', '520', '520', 2, 1, 'Hello world', '2021-08-29 05:58:35', '2021-08-29 06:00:00');
 
 -- --------------------------------------------------------
 
@@ -634,7 +740,9 @@ CREATE TABLE `vehicle_types` (
 --
 
 INSERT INTO `vehicle_types` (`id`, `owner_id`, `name`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'bike', NULL, NULL, '2021-04-28 01:05:01', '2021-04-28 01:05:01');
+(1, 1, 'bike', 'cvb', NULL, '2021-04-28 01:05:01', '2021-09-01 04:38:04'),
+(2, 1, 'car', 'car_1', NULL, '2021-05-21 00:43:07', '2021-05-21 00:43:07'),
+(3, 1, 'bus', 'bsdsaddsa', NULL, '2021-08-29 05:04:20', '2021-08-29 05:04:20');
 
 -- --------------------------------------------------------
 
@@ -712,21 +820,6 @@ ALTER TABLE `contacts`
   ADD KEY `contacts_created_by_foreign` (`created_by`);
 
 --
--- Indexes for table `expenses`
---
-ALTER TABLE `expenses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `expenses_owner_id_foreign` (`owner_id`),
-  ADD KEY `expenses_created_by_foreign` (`created_by`);
-
---
--- Indexes for table `expense_categories`
---
-ALTER TABLE `expense_categories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `expense_categories_owner_id_foreign` (`owner_id`);
-
---
 -- Indexes for table `files`
 --
 ALTER TABLE `files`
@@ -782,6 +875,13 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payments_paymentable_type_paymentable_id_index` (`paymentable_type`,`paymentable_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -797,6 +897,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `purchases`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `purchases_purchase_number_unique` (`purchase_number`),
   ADD KEY `purchases_owner_id_foreign` (`owner_id`),
   ADD KEY `purchases_contact_id_foreign` (`contact_id`),
   ADD KEY `purchases_created_by_foreign` (`created_by`),
@@ -809,13 +910,6 @@ ALTER TABLE `purchase_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `purchase_items_purchase_id_foreign` (`purchase_id`),
   ADD KEY `purchase_items_product_id_foreign` (`product_id`);
-
---
--- Indexes for table `purchase_payments`
---
-ALTER TABLE `purchase_payments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `purchase_payments_purchase_id_foreign` (`purchase_id`);
 
 --
 -- Indexes for table `sales`
@@ -904,37 +998,25 @@ ALTER TABLE `voucher_items`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `expenses`
---
-ALTER TABLE `expenses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `expense_categories`
---
-ALTER TABLE `expense_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `files`
@@ -946,13 +1028,13 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `invoice_items`
 --
 ALTER TABLE `invoice_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `job_cards`
@@ -964,7 +1046,7 @@ ALTER TABLE `job_cards`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `opening_stock_qties`
@@ -973,28 +1055,28 @@ ALTER TABLE `opening_stock_qties`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `purchase_items`
 --
 ALTER TABLE `purchase_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `purchase_payments`
---
-ALTER TABLE `purchase_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -1012,7 +1094,7 @@ ALTER TABLE `sale_items`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `units`
@@ -1024,19 +1106,19 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `vehicle_types`
 --
 ALTER TABLE `vehicle_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `vouchers`
@@ -1078,19 +1160,6 @@ ALTER TABLE `colors`
 ALTER TABLE `contacts`
   ADD CONSTRAINT `contacts_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `contacts_owner_id_foreign` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `expenses`
---
-ALTER TABLE `expenses`
-  ADD CONSTRAINT `expenses_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `expenses_owner_id_foreign` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `expense_categories`
---
-ALTER TABLE `expense_categories`
-  ADD CONSTRAINT `expense_categories_owner_id_foreign` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `files`
@@ -1146,12 +1215,6 @@ ALTER TABLE `purchases`
 ALTER TABLE `purchase_items`
   ADD CONSTRAINT `purchase_items_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `purchase_items_purchase_id_foreign` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `purchase_payments`
---
-ALTER TABLE `purchase_payments`
-  ADD CONSTRAINT `purchase_payments_purchase_id_foreign` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `sales`

@@ -58,6 +58,16 @@
       <v-list :tile="false" nav>
         <v-list-item-group color="primary">
           <v-list-item>
+<!--            <nuxt-link to="/myprofile">-->
+<!--              <v-list-item-content>-->
+<!--                <v-list-item-title>My Profile</v-list-item-title>-->
+<!--              </v-list-item-content>-->
+<!--            </nuxt-link>-->
+            <v-list-item-content>
+              <v-list-item-title @click="myProfile">My profile</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
             <v-list-item-content>
               <v-list-item-title @click="logout">Logout</v-list-item-title>
             </v-list-item-content>
@@ -148,6 +158,9 @@ export default {
     }),
     async logout() {
       await this.$auth.logout();
+    },
+    async myProfile() {
+       await this.$router.push("myprofile");
     },
     chnageLang(value) {
       localStorage.setItem("lang", value)

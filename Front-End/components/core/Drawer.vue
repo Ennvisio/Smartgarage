@@ -181,6 +181,23 @@ export default {
             }
           ]
         },
+        {
+          icon: "mdi-car",
+          title: this.$t("insurance"),
+          to: "/insurance",
+          children: [
+            {
+              icon: "mdi-shape",
+              title: this.$t("insurance_list"),
+              to: "/list"
+            },
+            {
+              icon: "mdi-shape",
+              title: this.$t("add_insurance"),
+              to: "/add"
+            },
+          ]
+        },
 
         {
           icon: "mdi-link",
@@ -250,8 +267,8 @@ export default {
 </script>
 <style scoped>
 .theme--dark.v-navigation-drawer {
-  background-color: #7fcec5;
-  background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);
+  /*background-color: #7fcec5;*/
+  /*background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%);*/
   /* background-color: #494ca2; */
 }
 </style>

@@ -44,6 +44,7 @@ Route::group(
 
 
 Route::resource('product', ProductsController::class);
+Route::resource('insurance', \App\Http\Controllers\InsuranceController::class);
 Route::post('product/search', [ProductsController::class, 'productSearch']);
 Route::get('customer-search', [CustomerController::class, 'customerSearch']);
 Route::post('contact-search', [ContactController::class, 'contactSearch']);
@@ -123,3 +124,5 @@ Route::get('get-brands', [BrandController::class, 'getBrands']);
 Route::get('top-card-data', [\App\Http\Controllers\DashboardController::class, 'get_top_card_data']);
 Route::get('/get-purchase-list', [\App\Http\Controllers\DashboardController::class, 'getPurchaseLists']);
 Route::get('/get-invoice-list', [\App\Http\Controllers\DashboardController::class, 'getInvoiceLists']);
+Route::resource('user',\App\Http\Controllers\UserController::class);
+Route::post('/change-password',  [\App\Http\Controllers\UserController::class,'changePassword']);

@@ -110,31 +110,34 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-
-        if ($request->has('name')) {
-            $user->name = $request->name;
-        }
         if ($request->has('first_name')) {
             $user->first_name = $request->first_name;
         }
         if ($request->has('last_name')) {
             $user->last_name = $request->last_name;
         }
-        if ($request->has('phone_no')) {
-            $user->phone_no = $request->phone_no;
+        if ($request->has('username')) {
+            $user->username = $request->username;
         }
-        if ($request->has('address')) {
-            $user->address = $request->address;
-        }
-        if ($request->has('email_address')) {
-            $user->email_address = $request->email_address;
-        }
-        if ($request->has('password')) {
-            $user->password = bcrypt($request->password);
+        if ($request->has('email')) {
+            $user->email = $request->email;
         }
 
         $user->save();
-
         return response()->json(['success' => true, 'message' => 'Updated successfully'], 200);
+    }
+    public function changePassword(Request $request)
+    {
+        $this->validate($request, [
+            'new_password' => 'required|min:4'
+        ]);
+        $user = User::findOrFail(auth()->user()->id);
+        if ($request->has('new_password')) {
+            $user->password = bcrypt($request->new_password);
+            $user->update();
+            return response()->json(['message' => "password updated successfully"]);
+        } else {
+            return response()->json(['success' => false], 500);
+        }
     }
 }

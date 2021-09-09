@@ -43,6 +43,10 @@ class Product extends Model
         return  $value?   asset('/' . $value) :"";
     }
 
+    public function insurances()
+    {
+        return $this->hasMany(Insurance::class);
+    }
     public function SalePurchaseReturn()
     {
         return $this->hasMany(SalePurchaseReturn::class);

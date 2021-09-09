@@ -62,11 +62,11 @@
               </template>
 
               <template v-slot:item.actions="{ item }">
-                <v-menu open-on-hover top offset-y>
+                <v-menu bottom left offset-y>
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn color="primary" dark small v-bind="attrs" v-on="on">
-                      <v-icon dark> mdi-dots-horizontal</v-icon>
-                    </v-btn>
+                    <v-icon v-bind="attrs" v-on="on">
+                      mdi-dots-vertical
+                    </v-icon>
                   </template>
                   <v-list>
                     <v-list-item
@@ -75,7 +75,7 @@
                       @click="openAddPayment(item)"
                     >
                       <v-icon>mdi-plus</v-icon>
-                      <v-list-item-title>Add Payment</v-list-item-title>
+                      <v-list-item-title>{{$t('add_payment')}}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
                       link
@@ -84,6 +84,7 @@
                         params: { id: item.id }
                       }"
                     >
+                      <v-icon>mdi-eye-outline</v-icon>
                       <v-list-item-title> {{ $t("view") }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
@@ -93,9 +94,11 @@
                         params: { id: item.id }
                       }"
                     >
+                      <v-icon>mdi-square-edit-outline</v-icon>
                       <v-list-item-title> {{ $t("edit") }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item link @click="deletePurchase(item)">
+                      <v-icon>mdi-trash-can-outline</v-icon>
                       <v-list-item-title> {{ $t("delete") }}</v-list-item-title>
                     </v-list-item>
                   </v-list>
