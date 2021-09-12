@@ -33,6 +33,11 @@ class Invoice extends Model
     {
         return $this->morphMany(Payment::class, 'paymentable');
     }
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('invoice_number', 'like', '%' . $keyword . '%');
+        }
+    }
 
 }

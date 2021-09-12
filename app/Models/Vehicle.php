@@ -33,7 +33,12 @@ class Vehicle extends Model
     public function invoiceitems(){
         return $this->hasMany(InvoiceItem::class);
     }
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('model', 'like', '%' . $keyword . '%');
+        }
+    }
     public function scopeActive($query)
     {
         return $query->latest();

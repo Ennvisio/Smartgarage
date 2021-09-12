@@ -27,9 +27,11 @@
             {{ $t("insurance_list") }}
             <v-spacer></v-spacer>
             <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
+              v-model="keyword"
               :label="this.$t('search')"
+              append-icon="mdi-magnify"
+              @click:append="getInsurances"
+              @keyup="getInsurances"
               single-line
               hide-details
             ></v-text-field>
@@ -38,8 +40,9 @@
             <v-data-table
               :headers="headers"
               :items="insurances"
-              :search="search"
-              :hide-default-footer="true"
+              :footer-props="footerProps"
+              :items-per-page="pagination.per_page"
+              @update:items-per-page="getItemPerPage"
             >
               <template v-slot:item.actions="{ item }">
                 <v-icon @click="editSingleProduct(item)"> mdi-square-edit-outline</v-icon>
@@ -47,8 +50,8 @@
               </template>
             </v-data-table>
             <v-pagination
-              class="pt-5"
-              v-model="pagination.current"
+              v-show="showpaginate"
+              v-model="pagination.current_page"
               :length="pagination.total"
               @input="onPageChange"
             ></v-pagination>
@@ -69,7 +72,8 @@ export default {
   },
   data() {
     return {
-      search: "",
+      keyword: "",
+      showpaginate: true,
       isLoading: false,
       update: false,
       dialog: false,
@@ -77,9 +81,11 @@ export default {
       headline: this.$t("insurance"),
       valid: true,
       direction: "top right",
+      footerProps: {"items-per-page-options": [10, 20, 30, 50, 100, -1]},
       pagination: {
-        current: 1,
-        total: 0
+        current_page: 1,
+        total: 0,
+        per_page: 10
       },
       singleProductId: "",
       insuranceId: "",
@@ -88,7 +94,6 @@ export default {
     };
   },
   computed: {
-
     headers() {
       return [
         {
@@ -142,19 +147,35 @@ export default {
   created() {
     this.getInsurances();
   },
-
   methods: {
+    getItemPerPage(val) {
+      if (val == -1) {
+        this.showpaginate = false;
+      } else {
+        this.showpaginate = true;
+      }
+      this.pagination.per_page = val;
+      this.getInsurances();
+    },
     onPageChange() {
       this.getInsurances();
     },
     async getInsurances() {
       this.isLoading = true;
-      await this.$axios.get('/insurance?page=' + this.pagination.current).then((response) => {
-        this.isLoading = false;
-        this.insurances = response.data.data;
-        this.pagination.current = response.data.meta.current_page;
-        this.pagination.total = response.data.meta.last_page;
-      });
+      await this.$axios
+        .get(
+          "/insurance?page=" +
+          this.pagination.current_page +
+          "&per_page=" +
+          this.pagination.per_page +
+          "&keyword=" + this.keyword
+        )
+        .then((response) => {
+          this.isLoading = false;
+          this.insurances = response.data.data;
+          this.pagination.current = response.data.meta.current_page;
+          this.pagination.total = response.data.meta.last_page;
+        });
     },
     opendialog(type) {
       this.$store.commit("SET_MODAL", {type: type, status: true});

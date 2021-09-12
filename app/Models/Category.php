@@ -41,7 +41,12 @@ class Category extends Model
     {
         return $query->where('owner_id',Auth::user()->id)->orderBy('created_at', 'desc');
     }
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
     public function services()
     {
         return $this->hasMany(Service::class);

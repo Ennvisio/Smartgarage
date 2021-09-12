@@ -14,10 +14,16 @@ class ServiceController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $services = Service::Active()->paginate(10);
-        return ServiceResource::collection($services);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $items = Service::active()->search($keyword)->get();
+        } else {
+            $items = Service::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return ServiceResource::collection($items);
     }
 
     public function store(Request $request)

@@ -26,44 +26,65 @@
           <v-card-title>
             {{ $t("product_list") }}
             <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              :label="this.$t('search')"
-              single-line
-              hide-details
-            ></v-text-field>
           </v-card-title>
           <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="productslist"
-              :search="search"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.image="{ item }">
-                <img
-                  class="product-img"
-                  :src="item.image"
-                  style="width: 50px; height: 50px"
-                />
-              </template>
-              <template v-slot:item.actions="{ item }">
-                <v-icon @click="editSingleProduct(item)"> mdi-square-edit-outline</v-icon>
-                <v-icon @click="deleteProduct(item)">mdi-trash-can-outline</v-icon>
-              </template>
-            </v-data-table>
-            <v-pagination
-              class="pt-5"
-              v-model="pagination.current"
-              :length="pagination.total"
-              @input="onPageChange"
-            ></v-pagination>
+            <v-row>
+              <v-col cols="12" sm="6" md="6" xl="4">
+                <v-btn tile color="indigo" link to="/product/add">
+                  <v-icon left> mdi-plus</v-icon>
+                  {{ $t("add") }}
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" md="6" xl="8">
+              </v-col>
+            </v-row>
+            <v-row no-gutters class="filter-section d-flex justify-start">
+              <v-col cols="6" md="6" sm="6" xl="3">
+                <v-text-field
+                  v-model="keyword"
+                  label="Search by name"
+                  @click:append="getProducts"
+                  @keyup="getProducts"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <div class="datatable">
+              <v-skeleton-loader
+                v-if="isLoading"
+                type="table"
+              ></v-skeleton-loader>
+              <v-data-table
+                :headers="headers"
+                :items="productslist"
+                :footer-props="footerProps"
+                :items-per-page="pagination.per_page"
+                @update:items-per-page="getItemPerPage"
+              >
+                <template v-slot:item.image="{ item }">
+                  <img
+                    class="product-img"
+                    :src="item.image"
+                    style="width: 50px; height: 50px"
+                  />
+                </template>
+                <template v-slot:item.actions="{ item }">
+                  <v-icon @click="editSingleProduct(item)"> mdi-square-edit-outline</v-icon>
+                  <v-icon @click="deleteProduct(item)">mdi-trash-can-outline</v-icon>
+                </template>
+              </v-data-table>
+              <v-pagination
+                v-show="showpaginate"
+                v-model="pagination.current_page"
+                :length="pagination.total"
+                @input="onPageChange"
+              ></v-pagination>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-
     <edit-single-product
       @clicked="onClickChild"
       :productId="singleProductId"
@@ -71,12 +92,11 @@
       @refresh="getProducts()"/>
   </v-container>
 </template>
-
 <script>
 import editSingleProduct from "~/components/product/editSingleProduct";
 
 export default {
-  name: "Products",
+  name: "list",
   middleware: "auth",
   head: {
     title: "Product List",
@@ -85,6 +105,8 @@ export default {
   data() {
     return {
       search: "",
+      keyword: "",
+      showpaginate: true,
       isLoading: false,
       update: false,
       dialog: false,
@@ -104,10 +126,6 @@ export default {
         price: "",
         image: null,
       },
-      pagination: {
-        current: 1,
-        total: 0
-      },
       singleItem: {},
       singleProductId: "",
       prodid: "",
@@ -115,10 +133,15 @@ export default {
       subcategories: [],
       units: [],
       items: [],
+      footerProps: {"items-per-page-options": [10, 20, 30, 50, 100, -1]},
+      pagination: {
+        current_page: 1,
+        total: 0,
+        per_page: 10
+      }
     };
   },
   computed: {
-
     headers() {
       return [
         {
@@ -190,21 +213,33 @@ export default {
   },
 
   methods: {
+    getItemPerPage(val) {
+      if (val == -1) {
+        this.showpaginate = false;
+      } else {
+        this.showpaginate = true;
+      }
+      this.pagination.per_page = val;
+      this.getProducts();
+    },
     onPageChange() {
       this.getProducts();
     },
-
     async getProducts() {
       this.isLoading = true;
-      await this.$axios.get('/product?page=' + this.pagination.current).then((response) => {
-        this.isLoading = false;
-        this.productslist = response.data.data;
-        this.pagination.current = response.data.meta.current_page;
-        this.pagination.total = response.data.meta.last_page;
-      });
-    },
-    opendialog(type) {
-      this.$store.commit("SET_MODAL", {type: type, status: true});
+      await this.$axios
+        .get(
+          "/product?page=" +
+          this.pagination.current_page +
+          "&per_page=" +
+          this.pagination.per_page +
+          "&keyword=" + this.keyword
+        ).then((response) => {
+          this.isLoading = false;
+          this.productslist = response.data.data;
+          this.pagination.current = response.data.meta.current_page;
+          this.pagination.total = response.data.meta.last_page;
+        });
     },
     editSingleProduct(val) {
       this.singleProductId = val;

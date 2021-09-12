@@ -31,7 +31,12 @@ class Product extends Model
     {
         return $this->belongsTo(Unit::class, 'unit_id');
     }
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id','id');
@@ -47,10 +52,6 @@ class Product extends Model
     {
         return $this->hasMany(Insurance::class);
     }
-    public function SalePurchaseReturn()
-    {
-        return $this->hasMany(SalePurchaseReturn::class);
-    }
 
     public function scopeActive($query)
     {
@@ -62,25 +63,6 @@ class Product extends Model
         return $this->morphOne(File::class, 'fileable');
     }
 
-    public static function generateSku($sku)
-    {
-        if (!empty($sku)) {
-            $checkSku = self::where('sku', $sku)->get();
-            if (count($checkSku) > 0) {
-                return $sku + '-' + count($checkSku) + 1;
-            } else {
-                return $sku;
-            }
-        } else {
-            return substr(md5(uniqid(rand(1, 7))) . microtime(true), 0, 15);
-        }
-    }
-
-    public static function generateSubSku($product)
-    {
-        $countvariations = ProductVariation::where('product_id', $product->id)->count() + 1;
-        return $product->sku . '-' . $countvariations;
-    }
 
     public static function createSingleProductVariation($product, $purchase_price, $sell_price, $tax)
     {

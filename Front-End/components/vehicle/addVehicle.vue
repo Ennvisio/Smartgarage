@@ -210,12 +210,12 @@ export default {
     },
     async getColors() {
       await this.$axios.get("/vehicle-color").then((response) => {
-        this.colors = response.data;
+        this.colors = response.data.data;
       });
     },
     async getTypes() {
       await this.$axios.get("/vehicle-type").then((response) => {
-        this.types = response.data;
+        this.types = response.data.data;
       });
     },
     async submitForm() {

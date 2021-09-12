@@ -13,10 +13,16 @@ class InsuranceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $insurance= Insurance::Active()->paginate(10);
-        return  InsuranceResource::collection($insurance);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $insurance= Insurance::active()->search($keyword)->get();
+        } else {
+            $insurance= Insurance::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return InsuranceResource::collection($insurance);
     }
 
     /**

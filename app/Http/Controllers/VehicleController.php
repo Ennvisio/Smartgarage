@@ -15,9 +15,15 @@ class VehicleController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $vehicles = Vehicle::Active()->paginate(10);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $vehicles = Vehicle::active()->search($keyword)->get();
+        } else {
+            $vehicles = Vehicle::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
         return VehicleResource::collection($vehicles);
     }
 

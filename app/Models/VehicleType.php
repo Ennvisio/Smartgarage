@@ -24,4 +24,10 @@ class VehicleType extends Model
     {
         return $query->orderBy('created_at', 'desc');
     }
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
 }

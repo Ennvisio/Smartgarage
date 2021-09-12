@@ -20,5 +20,11 @@ class Insurance extends Model
     {
         return $query->where('owner_id',Auth::user()->id)->orderBy('created_at', 'desc');
     }
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('company_name', 'like', '%' . $keyword . '%');
+        }
+    }
 
 }

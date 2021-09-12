@@ -20,9 +20,15 @@ class InvoiceController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $invoices = Invoice::where('owner_id', auth()->user()->id)->paginate(10);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $invoices = Invoice::active()->search($keyword)->get();
+        } else {
+            $invoices = Invoice::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
         return InvoiceResource::collection($invoices);
     }
 

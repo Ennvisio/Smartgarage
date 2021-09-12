@@ -15,39 +15,63 @@
               <v-col cols="12" md="6">
                 <span>{{ $t("name") }}</span>
                 <v-text-field
-                    class="smalltext"
-                    required
-                    outlined
-                    dense
-                    :rules="[v => !!v || this.$t('is_required')]"
-                    v-model="form.name"
+                  class="smalltext"
+                  required
+                  outlined
+                  dense
+                  :rules="[v => !!v || this.$t('is_required')]"
+                  v-model="form.name"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
                 <span>{{ $t("email") }}</span>
                 <v-text-field
-                    v-model="form.email"
-                    outlined
-                    :rules="[v => !!v || this.$t('is_required')]"
-                    dense
+                  v-model="form.email"
+                  outlined
+                  :rules="[v => !!v || this.$t('is_required')]"
+                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
                 <span>{{ $t("phone_no") }}</span>
                 <v-text-field
-                    v-model="form.mobile"
-                    outlined
-                    :rules="[v => !!v || this.$t('is_required')]"
-                    dense
+                  v-model="form.mobile"
+                  outlined
+                  :rules="[v => !!v || this.$t('is_required')]"
+                  dense
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
                 <span>{{ $t("address") }}</span>
                 <v-text-field
-                    v-model="form.address"
-                    outlined
-                    :rules="[v => !!v || this.$t('is_required')]"
-                    dense
+                  v-model="form.address"
+                  outlined
+                  :rules="[v => !!v || this.$t('is_required')]"
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bank_name") }}</span>
+                <v-text-field
+                  v-model="form.bank_name"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bank_account_no") }}</span>
+                <v-text-field
+                  v-model="form.account_no"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bkash_no") }}</span>
+                <v-text-field
+                  v-model="form.bkash_no"
+                  outlined
+                  dense
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -81,14 +105,18 @@ export default {
         email: "",
         mobile: "",
         address: "",
+        payment_method: "",
+        bank_name: "",
+        account_no: "",
+        bkash_no: "",
       },
     };
   },
   computed: {
     dialog() {
       return this.$store.getters.modaltype == "add"
-          ? this.$store.getters.modal
-          : false;
+        ? this.$store.getters.modal
+        : false;
     },
   },
   async asyncData({params, axios}) {

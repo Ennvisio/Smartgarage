@@ -27,10 +27,16 @@ class PurchaseController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $purchase = Purchase::active()->paginate(10);
-        return  PurchaseResource::collection($purchase);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $items = Purchase::active()->search($keyword)->get();
+        } else {
+            $items = Purchase::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return PurchaseResource::collection($items);
     }
 
     public function getSuppliers()

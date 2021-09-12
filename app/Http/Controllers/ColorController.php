@@ -15,10 +15,17 @@ class ColorController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $color = Color::Active()->get();
-        return response(ColorResource::collection($color), Response::HTTP_OK);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $colors = Color::active()->search($keyword)->get();
+        } else {
+            $colors= Color::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return ColorResource::collection($colors);
+
     }
 
     public function store(Request $request)

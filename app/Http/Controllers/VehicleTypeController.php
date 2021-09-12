@@ -16,10 +16,16 @@ class VehicleTypeController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $vehicleType = VehicleType::Active()->get();
-        return response(VehicleTypeResource::collection($vehicleType), Response::HTTP_OK);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $items = VehicleType::active()->search($keyword)->get();
+        } else {
+            $items = VehicleType::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return VehicleTypeResource::collection($items);
     }
 
     public function store(Request $request)

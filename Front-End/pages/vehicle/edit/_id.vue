@@ -191,8 +191,8 @@ export default {
       form: data.data.data,
       contacts: contacts.data,
       brands: brands.data,
-      colors: colors.data,
-      types: types.data,
+      colors: colors.data.data,
+      types: types.data.data,
       vehicleId: data.data.id,
     };
   },

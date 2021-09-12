@@ -39,5 +39,10 @@ class Contact extends Model
     {
         return $this->hasMany(Invoice::class,'contact_id','id');
     }
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
 }

@@ -31,11 +31,16 @@ class ProductsController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-
-        $product = Product::Active()->paginate(10);
-        return  ProductResource::collection($product);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $items = Product::active()->search($keyword)->get();
+        } else {
+            $items = Product::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return ProductResource::collection($items);
     }
 
     public function store(Request $request)
@@ -67,7 +72,7 @@ class ProductsController extends Controller
         $product->buying_price = $request->buying_price;
         $product->selling_price = $request->selling_price;
         $product->quantity = $request->quantity;
-        $product->status = $request->status == "Active"? 0 :1;
+        $product->status = $request->status == "Active" ? 0 : 1;
         $product->created_by = auth()->user()->id;
 
         $product->save();
@@ -122,7 +127,7 @@ class ProductsController extends Controller
         }
 
         if ($request->has('status')) {
-            $product->status = $request->status == "Active"? 0 :1;
+            $product->status = $request->status == "Active" ? 0 : 1;
         }
 
         $product->updated_by = auth()->user()->id;
@@ -151,10 +156,9 @@ class ProductsController extends Controller
         $type = $request->type;
         $keyword = $request->name;
         if ($type == "Product") {
-            $searchQ = Product::where('name', 'like', '%' . $keyword . '%')->where('owner_id', auth()->user()->id)->where('status',0);
+            $searchQ = Product::where('name', 'like', '%' . $keyword . '%')->where('owner_id', auth()->user()->id)->where('status', 0);
 
-        }
-        else {
+        } else {
             $searchQ = Service::where('name', 'like', '%' . $keyword . '%')->where('owner_id', auth()->user()->id);
         }
         $products = $searchQ->get();
@@ -183,17 +187,16 @@ class ProductsController extends Controller
     }
 
 
-
     public function getAllCategories()
     {
-        $categories = Category::where('parent_id',0)->where('owner_id',auth()->user()->id)->get();
+        $categories = Category::where('parent_id', 0)->where('owner_id', auth()->user()->id)->get();
 
         return response()->json($categories);
     }
 
     public function getAllBrands()
     {
-        $brands = Brand::where('owner_id',auth()->user()->id)->get();
+        $brands = Brand::where('owner_id', auth()->user()->id)->get();
 
         return response()->json($brands);
     }

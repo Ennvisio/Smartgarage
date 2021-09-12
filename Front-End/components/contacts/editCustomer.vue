@@ -45,6 +45,30 @@
                   :rules="[v => !!v || this.$t('is_required')]"
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bank_name") }}</span>
+                <v-text-field
+                    v-model="form.bank_name"
+                    outlined
+                    dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bank_account_no") }}</span>
+                <v-text-field
+                    v-model="form.account_no"
+                    outlined
+                    dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <span>{{ $t("bkash_no") }}</span>
+                <v-text-field
+                    v-model="form.bkash_no"
+                    outlined
+                    dense
+                ></v-text-field>
+              </v-col>
             </v-row>
           </v-form>
         </v-container>

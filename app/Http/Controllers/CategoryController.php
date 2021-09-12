@@ -24,10 +24,16 @@ class CategoryController extends Controller
         $this->middleware('jwt', ['except' => ['index']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::Active()->paginate(10);
-        return  CategoryResource::collection($categories);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $categories = Category::active()->search($keyword)->get();
+        } else {
+            $categories = Category::active()->search($keyword)->paginate($request->get('per_page', 10));
+        }
+        return CategoryResource::collection($categories);
     }
 
     public function store(Request $request)

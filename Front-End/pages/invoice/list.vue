@@ -22,89 +22,108 @@
       </v-dialog>
     </v-row>
     <v-row>
-      <v-col>
-        <v-btn tile color="indigo" class="float-right" to="/invoice/create">
-          <v-icon left> mdi-plus</v-icon>
-          {{ $t("add_invoice") }}
-        </v-btn>
-      </v-col>
-    </v-row>
-    <v-row>
       <v-col cols="12" md="12">
-        <v-card v-if="isLoading" flat>
+        <v-card v-if="isLoading"  class="mb-70" flat>
           <v-skeleton-loader class="mx-auto" type="table"></v-skeleton-loader>
         </v-card>
-        <v-card v-else flat>
+        <v-card v-else flat class="mb-70">
           <v-card-title>
             {{ $t("invoice_list") }}
             <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              :label="this.$t('search')"
-              single-line
-              hide-details
-            ></v-text-field>
           </v-card-title>
           <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="invoiceList"
-              :search="search"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-menu bottom left offset-y>
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-icon v-bind="attrs" v-on="on">
-                      mdi-dots-vertical
-                    </v-icon>
-                  </template>
-                  <v-list>
-                    <v-list-item
-                      link
-                      v-if="item.due_amount != 0"
-                      @click="openAddPayment(item)"
-                    >
-                      <v-icon>mdi-plus</v-icon>
-                      <v-list-item-title>{{ $t('add_payment') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      link
-                      :to="{
+            <v-row>
+              <v-col cols="12" sm="6" md="6" xl="4">
+                <v-btn
+                  tile
+                  color="indigo"
+                  link to="/invoice/create"
+                >
+                  <v-icon left> mdi-plus</v-icon>
+                  {{ $t("add") }}
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" md="6" xl="8">
+              </v-col>
+            </v-row>
+            <v-row no-gutters class="filter-section d-flex justify-start">
+              <v-col cols="6" md="6" sm="6" xl="3">
+                <v-text-field
+                  v-model="keyword"
+                  label="Search by invoice number"
+                  @click:append="getInvoiceList"
+                  @keyup="getInvoiceList"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <div class="datatable">
+              <v-skeleton-loader
+                v-if="isLoading"
+                type="table"
+              ></v-skeleton-loader>
+              <v-data-table
+                v-else
+                :headers="headers"
+                :items="invoiceList"
+                :footer-props="footerProps"
+                :items-per-page="pagination.per_page"
+                @update:items-per-page="getItemPerPage"
+              >
+                <template v-slot:item.actions="{ item }">
+                  <v-menu bottom left offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon v-bind="attrs" v-on="on">
+                        mdi-dots-vertical
+                      </v-icon>
+                    </template>
+                    <v-list>
+                      <v-list-item
+                        link
+                        v-if="item.due_amount != 0"
+                        @click="openAddPayment(item)"
+                      >
+                        <v-icon>mdi-plus</v-icon>
+                        <v-list-item-title>{{ $t('add_payment') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        link
+                        :to="{
                         name: 'invoice-view-id',
                         params: { id: item.id }
                       }"
-                    >
-                      <v-icon>mdi-eye-outline</v-icon>
-                      <v-list-item-title> {{ $t("view") }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      link
-                      :to="{
+                      >
+                        <v-icon>mdi-eye-outline</v-icon>
+                        <v-list-item-title> {{ $t("view") }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        link
+                        :to="{
                         name: 'invoice-edit-id',
                         params: { id: item.id }
                       }"
-                    >
-                      <v-icon>mdi-square-edit-outline</v-icon>
-                      <v-list-item-title>{{ $t("edit") }}
-                      </v-list-item-title
                       >
-                    </v-list-item>
-                    <v-list-item link @click="deleteInvoice(item)">
-                      <v-icon>mdi-trash-can-outline</v-icon>
-                      <v-list-item-title>{{ $t("delete") }}</v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </template>
-            </v-data-table>
-            <v-pagination
-              class="pt-5"
-              v-model="pagination.current"
-              :length="pagination.total"
-              @input="onPageChange"
-            ></v-pagination>
+                        <v-icon>mdi-square-edit-outline</v-icon>
+                        <v-list-item-title>{{ $t("edit") }}
+                        </v-list-item-title
+                        >
+                      </v-list-item>
+                      <v-list-item link @click="deleteInvoice(item)">
+                        <v-icon>mdi-trash-can-outline</v-icon>
+                        <v-list-item-title>{{ $t("delete") }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </template>
+              </v-data-table>
+              <v-pagination
+                v-show="showpaginate"
+                v-model="pagination.current_page"
+                :length="pagination.total"
+                @input="onPageChange"
+              ></v-pagination>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -123,6 +142,8 @@ export default {
   components: {addPayment},
   data() {
     return {
+      keyword: "",
+      showpaginate: true,
       full_loading: false,
       singleitem: {},
       paymentinfo: [],
@@ -138,9 +159,11 @@ export default {
       invoiceList: [],
       invoiceId: '',
       invoiceItemId: '',
+      footerProps: {"items-per-page-options": [10, 20, 30, 50, 100, -1]},
       pagination: {
-        current: 1,
-        total: 0
+        current_page: 1,
+        total: 0,
+        per_page: 10
       },
     };
   },
@@ -197,6 +220,15 @@ export default {
     this.updateParent();
   },
   methods: {
+    getItemPerPage(val) {
+      if (val == -1) {
+        this.showpaginate = false;
+      } else {
+        this.showpaginate = true;
+      }
+      this.pagination.per_page = val;
+      this.getInvoiceList();
+    },
     onPageChange() {
       this.getInvoiceList();
     },
@@ -231,12 +263,20 @@ export default {
     },
     async getInvoiceList() {
       this.isLoading = true;
-      await this.$axios.get('/invoice?page=' + this.pagination.current).then(response => {
-        this.isLoading = false;
-        this.invoiceList = response.data.data;
-        this.pagination.current = response.data.meta.current_page;
-        this.pagination.total = response.data.meta.last_page;
-      });
+      await this.$axios
+        .get(
+          "/invoice?page=" +
+          this.pagination.current_page +
+          "&per_page=" +
+          this.pagination.per_page +
+          "&keyword=" + this.keyword
+        )
+        .then(response => {
+          this.isLoading = false;
+          this.invoiceList = response.data.data;
+          this.pagination.current = response.data.meta.current_page;
+          this.pagination.total = response.data.meta.last_page;
+        });
     },
 
   }

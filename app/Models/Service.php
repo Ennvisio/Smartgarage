@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+
     protected $table = "services";
     protected $fillable = [
         'name', 'category_id', 'selling_price', 'status', 'description'
     ];
 
-
-    public function invoiceItems(){
+    public function invoiceItems()
+    {
         return $this->hasMany(InvoiceItem::class);
     }
 
@@ -22,13 +23,21 @@ class Service extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     public function owner()
     {
         return $this->belongsTo(User::class);
     }
+
     public function scopeActive($query)
     {
-        return $query->where('status','active')->latest();
+        return $query->where('status', 'active')->latest();
     }
 
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
 }

@@ -20,19 +20,6 @@
       </v-dialog>
     </v-row>
     <v-row>
-      <v-col>
-        <v-btn
-          tile
-          color="indigo"
-          class="float-right"
-          @click="opendialog('add')"
-        >
-          <v-icon left> mdi-plus</v-icon>
-          {{ $t("add") }}
-        </v-btn>
-      </v-col>
-    </v-row>
-    <v-row>
       <v-col cols="12" md="12">
         <v-card v-if="isLoading" flat>
           <v-skeleton-loader class="mx-auto" type="table"></v-skeleton-loader>
@@ -41,21 +28,52 @@
           <v-card-title>
             {{ $t("vehicle_color_list") }}
             <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              :label="this.$t('search')"
-              single-line
-              hide-details
-            ></v-text-field>
           </v-card-title>
           <v-card-text>
-            <v-data-table :headers="headers" :items="items" :search="search">
+            <v-row>
+              <v-col cols="12" sm="6" md="6" xl="4">
+                <v-btn
+                  tile
+                  color="indigo"
+                  @click="opendialog('add')"
+                >
+                  <v-icon left> mdi-plus</v-icon>
+                  {{ $t("add") }}
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" md="6" xl="8">
+              </v-col>
+            </v-row>
+            <v-row no-gutters class="filter-section d-flex justify-start">
+              <v-col cols="6" md="6" sm="6" xl="3">
+                <v-text-field
+                  v-model="keyword"
+                  label="Search by name"
+                  @click:append="getColors"
+                  @keyup="getColors"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-data-table
+              :headers="headers"
+              :items="items"
+              :footer-props="footerProps"
+              :items-per-page="pagination.per_page"
+              @update:items-per-page="getItemPerPage"
+            >
               <template v-slot:item.actions="{ item }">
                 <v-icon @click="editColor(item)">mdi-square-edit-outline</v-icon>
                 <v-icon @click="deleteColor(item)"> mdi-trash-can-outline</v-icon>
               </template>
             </v-data-table>
+            <v-pagination
+              v-show="showpaginate"
+              v-model="pagination.current_page"
+              :length="pagination.total"
+              @input="onPageChange"
+            ></v-pagination>
           </v-card-text>
         </v-card>
       </v-col>
@@ -76,7 +94,8 @@ export default {
   components: {addColor, editColor},
   data() {
     return {
-      search: "",
+      keyword: "",
+      showpaginate: true,
       isLoading: false,
       confirmation: false,
       update: false,
@@ -88,6 +107,12 @@ export default {
       categories: [],
       items: [],
       singleItem: {},
+      footerProps: {"items-per-page-options": [10, 20, 30, 50, 100, -1]},
+      pagination: {
+        current_page: 1,
+        total: 0,
+        per_page: 10
+      }
     };
   },
   computed: {
@@ -117,15 +142,36 @@ export default {
     this.getColors();
   },
   methods: {
+    getItemPerPage(val) {
+      if (val == -1) {
+        this.showpaginate = false;
+      } else {
+        this.showpaginate = true;
+      }
+      this.pagination.per_page = val;
+      this.getColors();
+    },
+    onPageChange() {
+      this.getColors();
+    },
     opendialog(type) {
       this.$store.commit("SET_MODAL", {type: type, status: true});
     },
     async getColors() {
       this.isLoading = true;
-      await this.$axios.get("/vehicle-color").then((response) => {
-        this.items = response.data;
-        this.isLoading = false;
-      });
+      await this.$axios
+        .get(
+          "/vehicle-color?page=" +
+          this.pagination.current_page +
+          "&per_page=" +
+          this.pagination.per_page +
+          "&keyword=" + this.keyword
+        ).then((response) => {
+          this.items = response.data.data;
+          this.isLoading = false;
+          this.pagination.current = response.data.meta.current_page;
+          this.pagination.total = response.data.meta.last_page;
+        });
     },
     deleteColor(item) {
       this.confirmation = true;

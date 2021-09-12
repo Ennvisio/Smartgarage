@@ -110,7 +110,6 @@
                     outlined
                     dense
                     required
-                    :rules="[v => !!v || this.$t('is_required')]"
                     v-model="form.note"
                   ></v-textarea>
                 </v-col>

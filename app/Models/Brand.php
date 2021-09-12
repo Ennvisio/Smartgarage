@@ -33,6 +33,10 @@ class Brand extends Model
         return $this->hasMany(Product::class, 'id', 'brand_id');
 
     }
-
-
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('name', 'like', '%' . $keyword . '%');
+        }
+    }
 }

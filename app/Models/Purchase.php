@@ -40,5 +40,11 @@ class Purchase extends Model
     {
         return $this->morphMany(Payment::class, 'paymentable');
     }
+    public function scopeSearch($query, $keyword)
+    {
+        if ($keyword != null) {
+            return $query->where('purchase_number', 'like', '%' . $keyword . '%');
+        }
+    }
 
 }

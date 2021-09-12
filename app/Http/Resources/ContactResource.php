@@ -21,6 +21,9 @@ class ContactResource extends JsonResource
             'email' => $this->email,
             'mobile' => $this->mobile,
             'address' => $this->address,
+            'bank_name' => $this->bank_name,
+            'account_no' => $this->account_no,
+            'bkash_no' => $this->bkash_no,
             'created_at' => $this->created_at->format('Y-m-d'),
         ];
     }

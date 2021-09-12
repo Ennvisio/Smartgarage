@@ -18,7 +18,13 @@ class ContactController extends Controller
     public function index(Request $request)
     {
         $type = $request->type;
-        $contacts = Contact::Active($type)->paginate(10);
+        $record = $request->record;
+        $keyword = $request->keyword;
+        if ($record == 'all' || $request->per_page == -1) {
+            $contacts = Contact::active($type)->search($keyword)->get();
+        } else {
+            $contacts = Contact::active($type)->search($keyword)->paginate($request->get('per_page', 10));
+        }
         return  ContactResource::collection($contacts);
     }
 
@@ -45,6 +51,10 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->address = $request->address;
         $contact->mobile = $request->mobile;
+        $contact->mobile = $request->mobile;
+        $contact->bank_name = $request->bank_name;
+        $contact->account_no = $request->account_no;
+        $contact->bkash_no = $request->bkash_no;
         $contact->created_by = auth()->user()->id;
         $contact->save();
 
@@ -64,15 +74,21 @@ class ContactController extends Controller
         if ($request->has('email')) {
             $contact->email = $request->email;
         }
-
         if ($request->has('address')) {
             $contact->address = $request->address;
         }
-
         if ($request->has('mobile')) {
             $contact->mobile = $request->mobile;
         }
-
+        if ($request->has('bank_name')) {
+            $contact->bank_name = $request->bank_name;
+        }
+        if ($request->has('account_no')) {
+            $contact->account_no = $request->account_no;
+        }
+        if ($request->has('bkash_no')) {
+            $contact->bkash_no = $request->bkash_no;
+        }
 
         $contact->save();
 
